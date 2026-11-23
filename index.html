@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>SAMSON  SAMSON TECH SOLUTION | Find an Engineer</title>
+<title>SAMSON TECH SOLUTION | Find an Engineer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -12,7 +12,15 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#e8f5e9 0%,#e0f2f1 100%);color:#1b3b4f;min-height:100vh;}
 
-/* Stripes & topbar */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:none;}}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+@keyframes pulseRing{0%,100%{box-shadow:0 0 0 0 rgba(241,196,15,.6),0 10px 24px rgba(0,0,0,.3);}50%{box-shadow:0 0 0 18px rgba(241,196,15,0),0 10px 24px rgba(0,0,0,.3);}}
+@keyframes kenBurns{0%{transform:scale(1) translate(0,0);}100%{transform:scale(1.15) translate(-2%,-2%);}}
+@keyframes floatY{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+@keyframes shimmer{0%,100%{background-position:0% 50%;}50%{background-position:100% 50%;}}
+@keyframes pulseDot{0%,100%{transform:scale(1);opacity:1;}50%{transform:scale(1.6);opacity:.6;}}
+@keyframes fadeSlideIn{from{opacity:0;transform:translateX(-18px);}to{opacity:1;transform:none;}}
+
 .color-stripes{position:fixed;top:0;left:0;width:100%;height:6px;display:flex;z-index:1200;}
 .stripe{flex:1;height:100%;}
 .stripe1{background:#2ecc71;}.stripe2{background:#f1c40f;}.stripe3{background:#3498db;}
@@ -28,32 +36,27 @@ body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#e8f5e9 0%
 .yt-btn{background:linear-gradient(135deg,#ff0000,#c40000);color:#fff;text-decoration:none;padding:4px 16px;border-radius:30px;font-weight:700;display:inline-flex;align-items:center;gap:7px;transition:.25s;box-shadow:0 3px 12px rgba(255,0,0,.35);}
 .yt-btn:hover{transform:translateY(-2px) scale(1.03);}
 .topbar-clock{display:inline-flex;align-items:center;gap:7px;background:rgba(241,196,15,.13);padding:4px 14px;border-radius:30px;color:#f1c40f;font-weight:800;font-family:'Courier New',monospace;letter-spacing:1.2px;font-size:.8rem;border:1px solid rgba(241,196,15,.3);}
-.live-dot{width:7px;height:7px;background:#2ecc71;border-radius:50%;display:inline-block;animation:pulse-dot 1.5s ease-in-out infinite;}
-@keyframes pulse-dot{0%,100%{transform:scale(1);opacity:1;}50%{transform:scale(1.6);opacity:.6;}}
+.live-dot{width:7px;height:7px;background:#2ecc71;border-radius:50%;display:inline-block;animation:pulseDot 1.5s ease-in-out infinite;}
 
-/* Hero */
 .hero{position:relative;background:linear-gradient(135deg,#0a3b2f 0%,#1b6d5e 50%,#0e4d3e 100%);padding:2.2rem 2rem 2rem;text-align:center;box-shadow:0 12px 28px rgba(0,0,0,.18);border-bottom:4px solid #f1c40f;overflow:hidden;}
 .hero::before{content:'';position:absolute;top:-50%;left:-20%;width:140%;height:200%;background:radial-gradient(ellipse at 30% 50%,rgba(46,204,113,.10) 0%,transparent 70%);pointer-events:none;}
 .hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#2ecc71,#f1c40f,#3498db,#27ae60,#f39c12);background-size:300% 100%;animation:shimmer 4s ease-in-out infinite;}
-@keyframes shimmer{0%,100%{background-position:0% 50%;}50%{background-position:100% 50%;}}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(241,196,15,.15);border:1px solid rgba(241,196,15,.4);color:#f9e79f;font-size:.75rem;font-weight:700;padding:6px 18px;border-radius:30px;letter-spacing:.6px;text-transform:uppercase;margin-bottom:1rem;}
-.hero h1{color:#fff;font-size:2.4rem;font-weight:900;letter-spacing:.5px;line-height:1.15;text-shadow:0 2px 12px rgba(0,0,0,.3);margin-bottom:.7rem;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(241,196,15,.15);border:1px solid rgba(241,196,15,.4);color:#f9e79f;font-size:.75rem;font-weight:700;padding:6px 18px;border-radius:30px;letter-spacing:.6px;text-transform:uppercase;margin-bottom:1rem;animation:fadeIn .8s ease;}
+.hero h1{color:#fff;font-size:2.4rem;font-weight:900;letter-spacing:.5px;line-height:1.15;text-shadow:0 2px 12px rgba(0,0,0,.3);margin-bottom:.7rem;animation:fadeUp .8s ease .1s both;}
 .hero h1 .highlight{color:#f1c40f;}
-.hero p{color:#a9e6cf;font-size:1rem;max-width:720px;margin:0 auto 1.4rem;line-height:1.6;}
-.hero-cta{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;position:relative;z-index:2;}
+.hero p{color:#a9e6cf;font-size:1rem;max-width:720px;margin:0 auto 1.4rem;line-height:1.6;animation:fadeUp .8s ease .2s both;}
+.hero-cta{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;position:relative;z-index:2;animation:fadeUp .8s ease .3s both;}
 .btn-hero{background:linear-gradient(135deg,#f1c40f,#f39c12);color:#0a3b2f;padding:13px 30px;border-radius:60px;font-weight:800;font-size:.95rem;text-decoration:none;border:none;cursor:pointer;transition:.25s;box-shadow:0 6px 20px rgba(241,196,15,.4);display:inline-flex;align-items:center;gap:9px;font-family:inherit;}
 .btn-hero:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 10px 30px rgba(241,196,15,.6);}
 .btn-hero.outline{background:transparent;border:2px solid rgba(255,255,255,.4);color:#fff;box-shadow:none;}
 .btn-hero.outline:hover{background:rgba(255,255,255,.1);border-color:#f1c40f;}
-.hero-stats{display:flex;justify-content:center;gap:2.5rem;margin-top:1.8rem;flex-wrap:wrap;position:relative;z-index:2;}
+.hero-stats{display:flex;justify-content:center;gap:2.5rem;margin-top:1.8rem;flex-wrap:wrap;position:relative;z-index:2;animation:fadeUp .8s ease .4s both;}
 .hero-stat{text-align:center;}
 .hero-stat .num{font-size:1.9rem;font-weight:900;color:#f1c40f;line-height:1;}
 .hero-stat .lbl{font-size:.72rem;color:#b8e0d4;font-weight:600;letter-spacing:.4px;text-transform:uppercase;margin-top:4px;}
 
-/* Container */
 .container{max-width:1400px;margin:2rem auto;padding:0 1.8rem;}
 
-/* Search + Filter */
 .search-bar{background:#fff;border-radius:60px;padding:.7rem 1rem;display:flex;gap:.6rem;flex-wrap:wrap;align-items:center;box-shadow:0 8px 24px -10px rgba(0,0,0,.15);margin-bottom:1.5rem;border:2px solid transparent;transition:.2s;}
 .search-bar:focus-within{border-color:#2ecc71;box-shadow:0 8px 24px -8px rgba(46,204,113,.3);}
 .search-bar .search-input{flex:1;min-width:200px;border:none;outline:none;padding:11px 16px;font-family:inherit;font-size:.95rem;background:transparent;color:#0a3b2f;}
@@ -63,33 +66,25 @@ body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#e8f5e9 0%
 .search-bar .search-btn{background:linear-gradient(135deg,#2ecc71,#27ae60);color:#fff;border:none;padding:11px 24px;border-radius:60px;font-weight:700;cursor:pointer;font-family:inherit;font-size:.85rem;display:inline-flex;align-items:center;gap:7px;transition:.2s;}
 .search-bar .search-btn:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(46,204,113,.35);}
 
-/* Section title */
 .sec-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.2rem;flex-wrap:wrap;gap:.8rem;}
 .sec-title h2{color:#0a3b2f;font-size:1.4rem;font-weight:900;display:flex;align-items:center;gap:10px;}
 .sec-title h2 i{color:#f1c40f;}
 .sec-title .result-count{color:#5a7a6e;font-size:.85rem;font-weight:600;}
 
-/* Engineers grid */
 .eng-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.3rem;}
-.eng-card{background:#fff;border-radius:24px;overflow:hidden;box-shadow:0 10px 26px -14px rgba(0,0,0,.2);transition:.25s;position:relative;display:flex;flex-direction:column;border:1px solid #e0ece6;}
+.eng-card{background:#fff;border-radius:24px;overflow:hidden;box-shadow:0 10px 26px -14px rgba(0,0,0,.2);transition:.25s;position:relative;display:flex;flex-direction:column;border:1px solid #e0ece6;animation:fadeUp .5s ease both;}
 .eng-card:hover{transform:translateY(-5px);box-shadow:0 20px 40px -18px rgba(0,0,0,.28);border-color:#2ecc71;}
-.eng-card.founder{border:2px solid #f1c40f;background:linear-gradient(180deg,#fffdf5 0%,#fff 40%);}
-.eng-card.own{border:2px solid #3498db;}
 .eng-card-top{padding:1.4rem 1.4rem .8rem;text-align:center;position:relative;}
 .eng-photo{width:96px;height:96px;border-radius:50%;object-fit:cover;margin:0 auto .8rem;border:4px solid #e8f5e9;background:#e8f5e9;display:flex;align-items:center;justify-content:center;font-size:2rem;font-weight:900;color:#1b6d5e;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,.1);}
-.eng-card.founder .eng-photo{border-color:#fff3c4;background:#fff8e1;color:#8a6100;}
 .eng-photo img{width:100%;height:100%;object-fit:cover;}
 .eng-name{font-size:1.1rem;font-weight:800;color:#0a3b2f;line-height:1.2;margin-bottom:.25rem;}
 .eng-spec{font-size:.76rem;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:#2ecc71;margin-bottom:.35rem;}
-.eng-card.founder .eng-spec{color:#b45309;}
 .eng-loc{font-size:.78rem;color:#5a7a6e;display:inline-flex;align-items:center;gap:5px;}
 .eng-loc i{color:#e74c3c;font-size:.72rem;}
 .eng-badges{position:absolute;top:12px;right:12px;display:flex;flex-direction:column;gap:5px;}
 .eng-badge{background:#fff;border-radius:20px;padding:3px 9px;font-size:.62rem;font-weight:800;letter-spacing:.3px;display:inline-flex;align-items:center;gap:4px;box-shadow:0 3px 8px rgba(0,0,0,.15);}
 .eng-badge.verified{background:#d1fae5;color:#065f46;}
-.eng-badge.founder-badge{background:#fff3c4;color:#8a6100;}
 .eng-badge.you{background:#dbeafe;color:#1e40af;}
-.eng-badge i{font-size:.6rem;}
 .eng-body{padding:0 1.4rem 1.2rem;flex:1;display:flex;flex-direction:column;gap:.7rem;}
 .eng-bio{font-size:.83rem;color:#3b5a4e;line-height:1.55;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
 .eng-skills{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.2rem;}
@@ -104,22 +99,22 @@ body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#e8f5e9 0%
 .eng-btn-edit{background:#dbeafe;color:#1e40af;}
 .eng-btn-edit:hover{background:#bfdbfe;}
 
-/* Empty state */
 .empty-state{text-align:center;padding:3.5rem 1rem;background:#fff;border-radius:24px;border:2px dashed #cde6dc;color:#7b9a8e;}
 .empty-state i{font-size:3rem;color:#c8e6df;margin-bottom:1rem;display:block;}
 .empty-state h3{color:#0a3b2f;font-size:1.1rem;margin-bottom:.4rem;}
 .empty-state p{font-size:.85rem;}
 
-/* Featured section */
 .featured-section{margin-top:3rem;}
-.featured-card{background:linear-gradient(135deg,#0a3b2f 0%,#1b6d5e 100%);border-radius:28px;padding:2rem;color:#fff;display:flex;gap:2rem;align-items:center;flex-wrap:wrap;box-shadow:0 20px 50px -20px rgba(10,59,47,.5);border-bottom:4px solid #f1c40f;}
-.featured-photo{width:130px;height:130px;border-radius:50%;object-fit:cover;border:5px solid #f1c40f;background:#0a3b2f;display:flex;align-items:center;justify-content:center;font-size:2.8rem;font-weight:900;color:#f1c40f;overflow:hidden;box-shadow:0 10px 24px rgba(0,0,0,.3);flex-shrink:0;}
+.featured-card{background:linear-gradient(135deg,#0a3b2f 0%,#1b6d5e 100%);border-radius:28px;padding:2rem;color:#fff;display:flex;gap:2rem;align-items:center;flex-wrap:wrap;box-shadow:0 20px 50px -20px rgba(10,59,47,.5);border-bottom:4px solid #f1c40f;animation:fadeUp .6s ease both;}
+.featured-photo{width:130px;height:130px;border-radius:50%;object-fit:cover;border:5px solid #f1c40f;background:#0a3b2f;display:flex;align-items:center;justify-content:center;font-size:2.8rem;font-weight:900;color:#f1c40f;overflow:hidden;flex-shrink:0;animation:pulseRing 3s ease-in-out infinite;}
 .featured-photo img{width:100%;height:100%;object-fit:cover;}
 .featured-info{flex:1;min-width:250px;}
 .featured-info .tag{display:inline-flex;align-items:center;gap:6px;background:rgba(241,196,15,.2);border:1px solid rgba(241,196,15,.5);color:#f9e79f;font-size:.7rem;font-weight:800;padding:4px 12px;border-radius:20px;text-transform:uppercase;letter-spacing:.5px;margin-bottom:.6rem;}
 .featured-info h3{font-size:1.6rem;font-weight:900;margin-bottom:.4rem;color:#fff;}
 .featured-info .role{color:#f1c40f;font-size:.9rem;font-weight:700;margin-bottom:.7rem;}
 .featured-info p{color:#c9e6db;font-size:.88rem;line-height:1.6;}
+.featured-chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.8rem;}
+.featured-chips .chip{background:rgba(241,196,15,.15);border:1px solid rgba(241,196,15,.35);color:#f9e79f;font-size:.7rem;font-weight:700;padding:4px 10px;border-radius:20px;}
 .featured-actions{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1rem;}
 .featured-actions .fbtn{padding:9px 20px;border-radius:40px;font-weight:700;font-size:.82rem;text-decoration:none;border:none;cursor:pointer;font-family:inherit;display:inline-flex;align-items:center;gap:6px;transition:.2s;}
 .featured-actions .fbtn.primary{background:#f1c40f;color:#0a3b2f;}
@@ -127,8 +122,26 @@ body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#e8f5e9 0%
 .featured-actions .fbtn.outline{background:transparent;border:2px solid rgba(255,255,255,.3);color:#fff;}
 .featured-actions .fbtn.outline:hover{background:rgba(255,255,255,.1);border-color:#f1c40f;}
 
-/* Signed-in bar */
-.signed-bar{background:linear-gradient(95deg,#1b6d5e,#0e4d3e);border-radius:16px;padding:.9rem 1.4rem;color:#fff;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:1.5rem;box-shadow:0 8px 20px -8px rgba(10,59,47,.4);border-left:5px solid #f1c40f;}
+.showcase-section{margin-top:3rem;}
+.showcase-carousel{position:relative;width:100%;aspect-ratio:16/9;max-height:520px;border-radius:28px;overflow:hidden;background:linear-gradient(135deg,#0a3b2f,#1b6d5e);box-shadow:0 20px 50px -20px rgba(10,59,47,.5);border:3px solid #f1c40f;animation:fadeUp .6s ease both;}
+.showcase-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease;pointer-events:none;}
+.showcase-slide.active{opacity:1;pointer-events:auto;}
+.showcase-slide img{width:100%;height:100%;object-fit:cover;display:block;}
+.showcase-slide.active img{animation:kenBurns 10s ease-in-out infinite alternate;}
+.showcase-empty{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#a9e6cf;text-align:center;padding:2rem;gap:.5rem;}
+.showcase-empty i{font-size:4rem;color:#f1c40f;animation:floatY 3s ease-in-out infinite;margin-bottom:.5rem;}
+.showcase-empty p{font-weight:800;color:#fff;font-size:1.1rem;}
+.showcase-empty small{font-size:.82rem;color:#a9e6cf;max-width:520px;}
+.showcase-empty code{background:rgba(0,0,0,.35);color:#f1c40f;padding:2px 7px;border-radius:6px;font-size:.75rem;}
+.showcase-dots{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:3;}
+.showcase-dot{width:12px;height:12px;border-radius:50%;border:2px solid #fff;background:rgba(255,255,255,.4);cursor:pointer;transition:.3s;padding:0;}
+.showcase-dot.active{background:#f1c40f;border-color:#f1c40f;transform:scale(1.3);}
+.showcase-nav{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;background:rgba(0,0,0,.5);border:2px solid rgba(255,255,255,.4);color:#fff;cursor:pointer;z-index:3;display:flex;align-items:center;justify-content:center;transition:.3s;font-size:1rem;}
+.showcase-nav:hover{background:#f1c40f;color:#0a3b2f;border-color:#f1c40f;}
+.showcase-nav.prev{left:16px;}
+.showcase-nav.next{right:16px;}
+
+.signed-bar{background:linear-gradient(95deg,#1b6d5e,#0e4d3e);border-radius:16px;padding:.9rem 1.4rem;color:#fff;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:1.5rem;box-shadow:0 8px 20px -8px rgba(10,59,47,.4);border-left:5px solid #f1c40f;animation:fadeSlideIn .4s ease both;}
 .signed-bar-left{display:flex;align-items:center;gap:1rem;flex:1;min-width:200px;}
 .signed-avatar{width:46px;height:46px;border-radius:50%;background:#f1c40f;color:#0a3b2f;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.95rem;overflow:hidden;flex-shrink:0;}
 .signed-avatar img{width:100%;height:100%;object-fit:cover;}
@@ -141,7 +154,6 @@ body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#e8f5e9 0%
 .signed-actions .out{background:rgba(255,255,255,.15);color:#fff;}
 .signed-actions .out:hover{background:rgba(255,255,255,.25);}
 
-/* Modals */
 .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:5000;display:none;align-items:flex-start;justify-content:center;padding:2rem 1rem;overflow-y:auto;backdrop-filter:blur(4px);}
 .modal-overlay.active{display:flex;}
 .modal{background:#fff;border-radius:20px;width:100%;max-width:660px;box-shadow:0 30px 80px rgba(0,0,0,.45);animation:modalIn .3s;overflow:hidden;}
@@ -156,16 +168,38 @@ body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#e8f5e9 0%
 .modal-body::-webkit-scrollbar{width:8px;}
 .modal-body::-webkit-scrollbar-thumb{background:#cde6dc;border-radius:10px;}
 
-/* Auth tabs */
+.profile-hero{display:flex;align-items:center;gap:1.4rem;flex-wrap:wrap;padding-bottom:1.2rem;border-bottom:2px solid #e8f0ec;margin-bottom:1.2rem;}
+.profile-hero .avatar{width:110px;height:110px;border-radius:50%;background:#e8f5e9;display:flex;align-items:center;justify-content:center;font-size:2.4rem;font-weight:900;color:#1b6d5e;overflow:hidden;border:4px solid #2ecc71;flex-shrink:0;animation:pulseRing 3s ease-in-out infinite;}
+.profile-hero .avatar img{width:100%;height:100%;object-fit:cover;}
+.profile-hero h2{font-size:1.5rem;color:#0a3b2f;font-weight:900;}
+.profile-hero .role{color:#2ecc71;font-weight:700;margin-top:.2rem;}
+.profile-hero .loc{color:#5a7a6e;font-size:.85rem;margin-top:.3rem;}
+.profile-section{margin-bottom:1.4rem;animation:fadeUp .4s ease both;}
+.profile-section h4{color:#0a3b2f;font-size:1rem;font-weight:800;margin-bottom:.7rem;display:flex;align-items:center;gap:8px;}
+.profile-section h4 i{color:#f1c40f;}
+.profile-section p{font-size:.88rem;color:#3b5a4e;line-height:1.65;}
+.cert-block{background:#f6fbf9;border-left:3px solid #2ecc71;padding:.7rem 1rem;border-radius:10px;margin-bottom:.6rem;}
+.cert-block .cert-title{font-weight:800;color:#0a3b2f;font-size:.9rem;}
+.cert-block .cert-period{color:#7b9a8e;font-size:.76rem;margin-bottom:.3rem;}
+.cert-block ul{margin:.3rem 0 0;padding-left:1.1rem;font-size:.82rem;color:#3b5a4e;line-height:1.55;}
+.cert-block ul li{margin-bottom:.2rem;}
+.exp-item{background:#fafffe;border:1px solid #e0ece6;border-radius:12px;padding:.9rem 1.1rem;margin-bottom:.6rem;}
+.exp-item .exp-role{font-weight:800;color:#0a3b2f;font-size:.92rem;}
+.exp-item .exp-company{color:#2ecc71;font-weight:700;font-size:.82rem;}
+.exp-item .exp-period{color:#7b9a8e;font-size:.76rem;margin-bottom:.4rem;}
+.exp-item ul{margin:0;padding-left:1.1rem;font-size:.82rem;color:#3b5a4e;line-height:1.55;}
+.exp-item ul li{margin-bottom:.2rem;}
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:.6rem;}
+.gallery-grid img{width:100%;height:140px;object-fit:cover;border-radius:10px;border:2px solid #e0ece6;cursor:pointer;transition:.2s;}
+.gallery-grid img:hover{transform:scale(1.04);border-color:#2ecc71;}
+
 .auth-tabs{display:flex;gap:.5rem;margin-bottom:1.4rem;border-bottom:2px solid #e0ece6;flex-wrap:wrap;}
 .auth-tab{background:none;border:none;padding:10px 20px;font-weight:700;cursor:pointer;color:#7b9a8e;border-bottom:3px solid transparent;transition:.2s;font-family:inherit;font-size:.88rem;margin-bottom:-2px;}
 .auth-tab.active{color:#0a3b2f;border-bottom-color:#2ecc71;}
 .auth-tab:hover:not(.active){color:#2ecc71;}
 .auth-panel{display:none;}
 .auth-panel.active{display:block;animation:fadeIn .25s;}
-@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
 
-/* Form */
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:.9rem;}
 .form-row .full{grid-column:1 / -1;}
 .field-label{display:block;font-size:.78rem;font-weight:700;color:#0a3b2f;margin-bottom:.35rem;}
@@ -174,6 +208,7 @@ body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#e8f5e9 0%
 .form-textarea{border-radius:16px;resize:vertical;min-height:80px;}
 .form-input:focus,.form-select:focus,.form-textarea:focus{outline:none;border-color:#2ecc71;box-shadow:0 0 0 4px rgba(46,204,113,.12);}
 .form-hint{font-size:.72rem;color:#7b9a8e;margin-top:.25rem;}
+.form-hint code{background:#e8f5e9;color:#0a3b2f;padding:1px 5px;border-radius:4px;font-size:.7rem;}
 .photo-picker{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;background:#f6fbf9;border:1.5px dashed #b8d8cd;border-radius:16px;padding:.9rem 1.1rem;margin-bottom:1rem;}
 .photo-preview{width:74px;height:74px;border-radius:50%;object-fit:cover;border:3px solid #2ecc71;background:#e8f5e9;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#7fb3a2;font-size:1.6rem;overflow:hidden;}
 .photo-preview img{width:100%;height:100%;object-fit:cover;}
@@ -185,8 +220,6 @@ body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#e8f5e9 0%
 .btn-primary{background:linear-gradient(95deg,#2ecc71,#27ae60);padding:12px 26px;border-radius:60px;font-weight:800;border:none;color:#fff;cursor:pointer;transition:.2s;font-size:.92rem;font-family:inherit;display:inline-flex;align-items:center;justify-content:center;gap:8px;}
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(46,204,113,.3);}
 .btn-primary.full{width:100%;}
-.btn-secondary{background:#e8f5e9;color:#0a3b2f;padding:10px 20px;border-radius:60px;border:none;font-weight:700;cursor:pointer;transition:.2s;font-family:inherit;display:inline-flex;align-items:center;gap:7px;font-size:.85rem;}
-.btn-secondary:hover{background:#c8e6df;}
 .btn-danger{background:#e74c3c;color:#fff;padding:9px 18px;border-radius:60px;border:none;font-weight:700;cursor:pointer;transition:.2s;font-family:inherit;display:inline-flex;align-items:center;gap:6px;font-size:.82rem;}
 .btn-danger:hover{background:#c0392b;}
 .alert{border-radius:12px;padding:10px 14px;font-size:.85rem;margin-bottom:1rem;display:none;font-weight:600;}
@@ -194,7 +227,6 @@ body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#e8f5e9 0%
 .alert.success{background:#e0f5e8;color:#1e7e5c;display:block;}
 .alert.info{background:#e0f0ff;color:#1c5f9e;display:block;}
 
-/* Contact modal */
 .contact-card{background:#f9fafb;border-radius:16px;padding:1rem;margin-bottom:1rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;}
 .contact-photo{width:70px;height:70px;border-radius:50%;background:#e8f5e9;display:flex;align-items:center;justify-content:center;font-weight:900;color:#1b6d5e;font-size:1.4rem;overflow:hidden;border:3px solid #2ecc71;flex-shrink:0;}
 .contact-photo img{width:100%;height:100%;object-fit:cover;}
@@ -212,7 +244,6 @@ body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#e8f5e9 0%
 .contact-btn.whatsapp{background:#d1fae5;color:#065f46;}
 .contact-btn.whatsapp:hover{background:#065f46;color:#fff;transform:translateY(-2px);}
 
-/* Admin */
 .admin-panel{display:none;}
 .admin-panel.active{display:block;}
 .admin-nav{display:flex;gap:.5rem;background:#fff;padding:.6rem;border-radius:60px;box-shadow:0 4px 12px rgba(0,0,0,.05);margin-bottom:1.5rem;flex-wrap:wrap;}
@@ -223,7 +254,8 @@ body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#e8f5e9 0%
 .admin-tab.active{display:block;animation:fadeIn .3s;}
 
 .stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1.2rem;margin-bottom:1.8rem;}
-.stat-card{background:#fff;border-radius:20px;padding:1.2rem;text-align:center;box-shadow:0 4px 12px rgba(0,0,0,.04);border-top:4px solid #2ecc71;}
+.stat-card{background:#fff;border-radius:20px;padding:1.2rem;text-align:center;box-shadow:0 4px 12px rgba(0,0,0,.04);border-top:4px solid #2ecc71;transition:.2s;}
+.stat-card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(0,0,0,.08);}
 .stat-card.gold{border-top-color:#f1c40f;}
 .stat-card.blue{border-top-color:#3498db;}
 .stat-card.red{border-top-color:#e74c3c;}
@@ -245,7 +277,6 @@ body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#e8f5e9 0%
 .avatar-tbl img{width:100%;height:100%;object-fit:cover;}
 .user-cell{display:flex;align-items:center;gap:9px;}
 
-/* Footer */
 .designer-credit{text-align:center;margin:2rem 0 1rem;padding:.9rem;background:linear-gradient(95deg,#f1c40f,#f39c12);border-radius:60px;color:#0a3b2f;font-weight:bold;}
 .modern-footer{background:#0a3b2f;border-radius:2rem 2rem 0 0;margin-top:2.5rem;padding:2rem 2rem 1rem;color:#e0f2e9;}
 .footer-flex{display:flex;justify-content:space-between;flex-wrap:wrap;gap:2rem;max-width:1400px;margin:0 auto;}
@@ -265,6 +296,7 @@ body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#e8f5e9 0%
     .featured-card{flex-direction:column;text-align:center;}
     .featured-actions{justify-content:center;}
     .form-row{grid-template-columns:1fr;}
+    .showcase-carousel{aspect-ratio:4/3;}
 }
 @media (max-width:600px){
     .hero{padding:1.6rem 1rem;}
@@ -279,6 +311,7 @@ body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#e8f5e9 0%
     .signed-bar{padding:.8rem 1rem;}
     .signed-actions{width:100%;}
     .signed-actions button{flex:1;}
+    .showcase-nav{width:36px;height:36px;font-size:.85rem;}
 }
 </style>
 </head>
@@ -289,7 +322,6 @@ body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#e8f5e9 0%
     <div class="stripe stripe4"></div><div class="stripe stripe5"></div>
 </div>
 
-<!-- Top bar -->
 <div class="topbar">
     <div class="topbar-inner">
         <div class="topbar-left">
@@ -305,7 +337,6 @@ body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#e8f5e9 0%
     </div>
 </div>
 
-<!-- Hero -->
 <header class="hero">
     <div class="hero-badge"><i class="fas fa-hard-hat"></i> Certified Engineers Directory</div>
     <h1>SAMSON <span class="highlight">TECH</span> SOLUTION</h1>
@@ -321,10 +352,7 @@ body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#e8f5e9 0%
     </div>
 </header>
 
-<!-- Main container: public directory -->
 <div class="container" id="publicView">
-
-    <!-- Signed-in bar (engineer) -->
     <div class="signed-bar" id="signedBar" style="display:none;">
         <div class="signed-bar-left">
             <div class="signed-avatar" id="signedAvatar">U</div>
@@ -339,12 +367,9 @@ body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#e8f5e9 0%
         </div>
     </div>
 
-    <!-- Search + filter -->
     <div class="search-bar">
         <input type="text" class="search-input" id="searchInput" placeholder="Search by name, skill, or location...">
-        <select id="specFilter">
-            <option value="">All Specialties</option>
-        </select>
+        <select id="specFilter"><option value="">All Specialties</option></select>
         <select id="sortFilter">
             <option value="newest">Newest first</option>
             <option value="name">Name (A-Z)</option>
@@ -353,14 +378,12 @@ body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#e8f5e9 0%
         <button class="search-btn" id="searchBtn"><i class="fas fa-search"></i> Search</button>
     </div>
 
-    <!-- Directory -->
     <div class="sec-title">
         <h2><i class="fas fa-users"></i> Engineers Directory</h2>
         <span class="result-count" id="resultCount">0 engineers found</span>
     </div>
     <div class="eng-grid" id="engGrid"></div>
 
-    <!-- Featured (founder) -->
     <section class="featured-section">
         <div class="sec-title"><h2><i class="fas fa-star"></i> Founder &amp; Lead</h2></div>
         <div class="featured-card">
@@ -369,17 +392,26 @@ body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#e8f5e9 0%
                 <div class="tag"><i class="fas fa-award"></i> ICT Manager &amp; Founder</div>
                 <h3>MR SAMSON RUMBA</h3>
                 <div class="role">Founder — Samson Tech Solution</div>
-                <p>Leading the mission to connect skilled engineers with the people who need them. Networking, Web Development, Cybersecurity &amp; ICT Training specialist.</p>
+                <p>Results-oriented IT professional with hands-on experience across networking, system administration, and computer maintenance. Skilled in POS systems, property management systems, PBX telephony, CCTV, printer infrastructure, smart door locks, and landline network administration.</p>
+                <div class="featured-chips" id="founderChips"></div>
                 <div class="featured-actions">
                     <button class="fbtn primary" id="contactFounderBtn"><i class="fas fa-paper-plane"></i> Contact Samson</button>
+                    <button class="fbtn outline" id="viewFounderProfileBtn"><i class="fas fa-id-card"></i> View Full Profile</button>
                     <a class="fbtn outline" href="https://www.youtube.com/@MSAMBWENI-TVC" target="_blank" rel="noopener"><i class="fab fa-youtube"></i> YouTube</a>
                 </div>
             </div>
         </div>
     </section>
+
+    <section class="showcase-section">
+        <div class="sec-title">
+            <h2><i class="fas fa-photo-film"></i> Photo Showcase</h2>
+            <span class="result-count" id="showcaseCount">0 photos</span>
+        </div>
+        <div class="showcase-carousel" id="showcaseCarousel"></div>
+    </section>
 </div>
 
-<!-- Admin panel (only shown when admin logged in) -->
 <div class="container admin-panel" id="adminPanel">
     <div class="signed-bar">
         <div class="signed-bar-left">
@@ -390,19 +422,17 @@ body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#e8f5e9 0%
             </div>
         </div>
         <div class="signed-actions">
+            <button class="edit" id="adminEditBtn"><i class="fas fa-edit"></i> Edit My Profile</button>
             <button class="out" id="viewSiteBtn"><i class="fas fa-globe"></i> View Site</button>
             <button class="out" id="adminLogoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</button>
         </div>
     </div>
-
     <div class="stat-grid" id="adminStats"></div>
-
     <div class="admin-nav">
         <button class="active" data-admin-tab="pending"><i class="fas fa-clock"></i> Pending Approval</button>
         <button data-admin-tab="all"><i class="fas fa-users"></i> All Engineers</button>
         <button data-admin-tab="contacts"><i class="fas fa-envelope-open-text"></i> Contact Log</button>
     </div>
-
     <div class="admin-tab active" id="tab-pending"></div>
     <div class="admin-tab" id="tab-all"></div>
     <div class="admin-tab" id="tab-contacts"></div>
@@ -428,7 +458,6 @@ body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#e8f5e9 0%
                 <a href="#"><i class="fab fa-twitter"></i></a>
                 <a href="#"><i class="fab fa-tiktok"></i></a>
                 <a href="https://wa.me/254784570565" target="_blank"><i class="fab fa-whatsapp"></i></a>
-              
             </div>
         </div>
         <div>
@@ -441,7 +470,6 @@ body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#e8f5e9 0%
     <div class="footer-bottom">© 2026 Samson Tech Solution | Created by <strong>MR SAMSON RUMBA</strong> — ICT Manager</div>
 </footer>
 
-<!-- ═══════════ AUTH MODAL ═══════════ -->
 <div class="modal-overlay" id="authModal">
     <div class="modal">
         <div class="modal-head">
@@ -453,8 +481,6 @@ body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#e8f5e9 0%
                 <button class="auth-tab active" data-auth-tab="login">Login</button>
                 <button class="auth-tab" data-auth-tab="register">Register as Engineer</button>
             </div>
-
-            <!-- Login -->
             <div class="auth-panel active" id="panel-login">
                 <div class="alert" id="loginAlert"></div>
                 <div class="form-row">
@@ -472,14 +498,12 @@ body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#e8f5e9 0%
                     Don't have an account? <a href="#" style="color:#2ecc71;font-weight:700;text-decoration:none;" class="switch-tab" data-to="register">Register as Engineer</a>
                 </p>
             </div>
-
-            <!-- Register -->
             <div class="auth-panel" id="panel-register">
                 <div class="alert" id="registerAlert"></div>
                 <div class="photo-picker">
                     <div class="photo-preview" id="regPhotoPreview"><i class="fas fa-user"></i></div>
-                    <div class="pp-text"><strong>Profile Photo</strong><small>Clear passport or professional photo (JPG/PNG)</small></div>
-                    <label class="file-btn"><i class="fas fa-camera"></i> Upload<input type="file" id="regPhotoInput" accept="image/*" hidden></label>
+                    <div class="pp-text"><strong>Profile Photo</strong><small>JPG or PNG (JPEG preferred)</small></div>
+                    <label class="file-btn"><i class="fas fa-camera"></i> Upload<input type="file" id="regPhotoInput" accept=".jpg,.jpeg,.png,image/jpeg,image/jpg,image/png" hidden></label>
                 </div>
                 <div class="form-row">
                     <div class="full">
@@ -516,6 +540,7 @@ body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#e8f5e9 0%
                             <option>Cloud / DevOps Engineer</option>
                             <option>Data Engineer</option>
                             <option>ICT Trainer</option>
+                            <option>IT Professional</option>
                             <option>Other</option>
                         </select>
                     </div>
@@ -537,9 +562,8 @@ body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#e8f5e9 0%
     </div>
 </div>
 
-<!-- ═══════════ EDIT PROFILE MODAL ═══════════ -->
 <div class="modal-overlay" id="editModal">
-    <div class="modal">
+    <div class="modal wide">
         <div class="modal-head">
             <h3><i class="fas fa-edit"></i> Edit My Profile</h3>
             <button class="modal-close" data-close="editModal">✕</button>
@@ -548,8 +572,18 @@ body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#e8f5e9 0%
             <div class="alert" id="editAlert"></div>
             <div class="photo-picker">
                 <div class="photo-preview" id="editPhotoPreview"><i class="fas fa-user"></i></div>
-                <div class="pp-text"><strong>Profile Photo</strong><small>Change your profile photo</small></div>
-                <label class="file-btn"><i class="fas fa-camera"></i> Change<input type="file" id="editPhotoInput" accept="image/*" hidden></label>
+                <div class="pp-text"><strong>Profile Photo</strong><small>JPG or PNG (JPEG preferred)</small></div>
+                <label class="file-btn"><i class="fas fa-camera"></i> Change<input type="file" id="editPhotoInput" accept=".jpg,.jpeg,.png,image/jpeg,image/jpg,image/png" hidden></label>
+            </div>
+            <div class="photo-picker" style="flex-direction:column;align-items:stretch;">
+                <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;width:100%;">
+                    <div class="pp-text" style="flex:1;">
+                        <strong><i class="fas fa-photo-film" style="color:#f1c40f;"></i> Gallery / Animation Photos (JPEG)</strong>
+                        <small>These appear in the animated showcase carousel and in your full profile gallery. Photos added via code (<code>FOUNDER_PHOTOS</code>) also appear and can be removed here.</small>
+                    </div>
+                    <label class="file-btn"><i class="fas fa-images"></i> Add Photos<input type="file" id="editGalleryInput" accept=".jpg,.jpeg,.png,image/jpeg,image/jpg,image/png" multiple hidden></label>
+                </div>
+                <div id="editGalleryPreview" style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.6rem;"></div>
             </div>
             <div class="form-row">
                 <div class="full">
@@ -577,6 +611,7 @@ body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#e8f5e9 0%
                         <option>Cloud / DevOps Engineer</option>
                         <option>Data Engineer</option>
                         <option>ICT Trainer</option>
+                        <option>IT Professional</option>
                         <option>Other</option>
                     </select>
                 </div>
@@ -604,13 +639,22 @@ body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#e8f5e9 0%
                     <label class="field-label">GitHub / Portfolio</label>
                     <input type="url" class="form-input" id="editPortfolio" placeholder="https://github.com/...">
                 </div>
+                <div class="full">
+                    <label class="field-label">Certifications &amp; Training</label>
+                    <textarea class="form-textarea" id="editCerts" style="min-height:140px;" placeholder="Title | Period&#10;- bullet 1&#10;- bullet 2&#10;&#10;Next Cert | Period"></textarea>
+                    <p class="form-hint">Format: <code>Title | Period</code> on first line, then each bullet on a new line starting with <code>-</code>. Separate certificates with a blank line.</p>
+                </div>
+                <div class="full">
+                    <label class="field-label">Professional Experience</label>
+                    <textarea class="form-textarea" id="editExperience" style="min-height:160px;" placeholder="Role | Company | Period&#10;- bullet 1&#10;- bullet 2&#10;&#10;Next Role | Company | Period"></textarea>
+                    <p class="form-hint">Format: <code>Role | Company | Period</code> on first line, then each bullet on a new line starting with <code>-</code>. Separate roles with a blank line.</p>
+                </div>
             </div>
             <button class="btn-primary full" id="editSaveBtn"><i class="fas fa-save"></i> Save Changes</button>
         </div>
     </div>
 </div>
 
-<!-- ═══════════ CONTACT MODAL ═══════════ -->
 <div class="modal-overlay" id="contactModal">
     <div class="modal">
         <div class="modal-head">
@@ -646,13 +690,65 @@ body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#e8f5e9 0%
     </div>
 </div>
 
+<div class="modal-overlay" id="profileModal">
+    <div class="modal wide">
+        <div class="modal-head">
+            <h3><i class="fas fa-id-card"></i> Full Profile</h3>
+            <button class="modal-close" data-close="profileModal">✕</button>
+        </div>
+        <div class="modal-body" id="profileModalBody"></div>
+    </div>
+</div>
+
 <script>
+/* ═══════════════════════════════════════════════════════════════════════
+   ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
+   ★                                                                     ★
+   ★         ★★★  ADD YOUR PHOTOS HERE  ★★★                            ★
+   ★                                                                     ★
+   ★  Photos added here are visible to EVERY visitor immediately —       ★
+   ★  no login required.                                                 ★
+   ★                                                                     ★
+   ★  OPTION A — File paths (easiest & recommended):                     ★
+   ★    1. Save your JPEG files in the SAME FOLDER as this HTML file     ★
+   ★       e.g.  samson.jpg, photo1.jpg, photo2.jpg                      ★
+   ★    2. Replace the empty strings below with your file names:         ★
+   ★         const FOUNDER_PROFILE_PHOTO = 'samson.jpg';                 ★
+   ★         const FOUNDER_PHOTOS = [                                    ★
+   ★             'photo1.jpg',                                           ★
+   ★             'photo2.jpg',                                           ★
+   ★             'photo3.jpg',                                           ★
+   ★         ];                                                          ★
+   ★                                                                     ★
+   ★  OPTION B — Base64 (paste the entire data URL):                     ★
+   ★    const FOUNDER_PHOTOS = [                                         ★
+   ★       'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQ...',               ★
+   ★    ];                                                              ★
+   ★                                                                     ★
+   ★  Notes:                                                             ★
+   ★   • The first photo in FOUNDER_PHOTOS shows first in the carousel   ★
+   ★   • You can mix file paths AND base64 strings freely                ★
+   ★   • Only JPEG / JPG / PNG files are supported                       ★
+   ★   • Leave the arrays empty (as shown) to show the placeholder       ★
+   ★                                                                     ★
+   ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
+   ═══════════════════════════════════════════════════════════════════════ */
+
+const FOUNDER_PROFILE_PHOTO = ''; // e.g. 'samson.jpg'
+
+const FOUNDER_PHOTOS = [
+    // 'photo1.jpg',
+    // 'photo2.jpg',
+    // 'photo3.jpg',
+    // 'data:image/jpeg;base64,....',
+];
+
 /* ═══════════════════════════════════════════════════════════════
-   CONSTANTS
+   CONSTANTS & FULL FOUNDER CV DATA
    ═══════════════════════════════════════════════════════════════ */
-const ENGINEERS_KEY = 'sts_engineers_v1';
-const CONTACTS_KEY  = 'sts_contacts_v1';
-const SESSION_KEY   = 'sts_session_v1';
+const ENGINEERS_KEY = 'sts_engineers_v2';
+const CONTACTS_KEY  = 'sts_contacts_v2';
+const SESSION_KEY   = 'sts_session_v2';
 const ADMIN_EMAIL   = 'samson@samsontech.co.ke';
 
 const DEFAULT_FOUNDER = {
@@ -664,13 +760,99 @@ const DEFAULT_FOUNDER = {
     isFounder: true,
     verified: true,
     photo: '',
+    gallery: [],
     phone: '+254 700 123 456',
-    whatsapp: '+254 700 123 456',
-    specialty: 'ICT Manager',
-    location: 'Msambweni, Kwale County',
-    bio: 'Founder & lead of Samson Tech Solution — Networking, Web Development, Cybersecurity & ICT Training specialist.',
-    skills: ['Networking','Web Development','Cybersecurity','ICT Training'],
-    yearsExperience: 10,
+    whatsapp: '+254 784 570 565',
+    specialty: 'IT Professional',
+    location: 'Msambweni, Kwale County, Kenya',
+    bio: 'Results-oriented IT professional with hands-on experience across networking, system administration, and computer maintenance. Skilled in installing, configuring, and managing POS systems, property management systems, PBX telephony, CCTV, and printer infrastructure, alongside smart door lock and landline network administration. Combines strong technical troubleshooting with proven leadership, training, and staff management, working independently and efficiently to deliver reliable IT support in demanding, fast-paced environments.',
+    skills: [
+        'Networking','System Administration','Computer Maintenance','POS Systems',
+        'Property Management Systems','PBX Telephony','CCTV','Printer Infrastructure',
+        'Smart Door Locks','Landline Network Admin','Cisco CCNA','Cybersecurity',
+        'Data Science','ICT Training','Staff Management','Troubleshooting'
+    ],
+    yearsExperience: 7,
+    certifications: [
+        {
+            title: 'Cisco CCNA 1, CCNA 2 & CCNA 3',
+            period: 'Jan 2026 – Nov 2026',
+            bullets: [
+                'Set up and configured routers and switches to connect computers and devices on a network.',
+                'Assigned IP addresses and divided networks into smaller parts (subnetting).',
+                'Created VLANs to separate and organise users on the same network.',
+                'Set up routing so data can travel between different networks.',
+                'Configured DHCP, NAT, and access lists to share internet access and control who can use the network.',
+                'Set up basic wireless networks and security to protect the network.',
+                'Found and fixed network problems using Cisco commands and Packet Tracer.',
+                'Learned how WANs, VPNs, and network automation work.'
+            ]
+        },
+        { title: 'Cybersecurity', period: '2025', bullets: [] },
+        { title: 'Data Science', period: '2025', bullets: [] }
+    ],
+    experience: [
+        {
+            role: 'ICT Trainer / ICT Lab Technician',
+            company: 'Msambweni Technical and Vocational College',
+            period: 'Jan 2025 – Aug 2026',
+            bullets: [
+                'Install, configure, and maintain computers, printers, projectors, and network devices, including routers, switches, and access points.',
+                'Diagnose and repair hardware and software faults to minimise equipment downtime.',
+                'Carry out routine maintenance to keep all ICT equipment fully functional.',
+                'Maintain up-to-date system software, including Windows updates, antivirus, and business applications.',
+                'Set up and maintain computer labs and office ICT systems to support training delivery.'
+            ]
+        },
+        {
+            role: 'IT Intern',
+            company: 'Diani Reef Beach Resort and Spa',
+            period: 'Apr 2024 – Nov 2024',
+            bullets: [
+                'Configured and monitored Wi-Fi networks for guests and staff, ensuring reliable connectivity across the resort.',
+                'Managed firewalls, routers, and switches to maintain secure network operations.',
+                'Installed and configured range extenders and access points to extend network coverage.',
+                'Installed, configured, and maintained the PBX telephone system, including extension setup and fault resolution.',
+                'Diagnosed and resolved network connectivity issues for end-users in a fast-paced hospitality environment.',
+                'Carried out printer configuration and CCTV system installation.',
+                'Delivered technical support to staff and guests, including Microsoft Office assistance.',
+                'Applied core cybersecurity practices and general system administration.',
+                'Supported ongoing website and database management tasks.'
+            ]
+        },
+        {
+            role: 'Company Attachee',
+            company: 'Rex Consultants Limited',
+            period: 'May 2023 – Aug 2023',
+            bullets: [
+                'Maintained company network infrastructure to minimise downtime.',
+                'Provided day-to-day IT support to staff across all departments.'
+            ]
+        },
+        {
+            role: 'Attachee',
+            company: 'Quava-Tel Limited',
+            period: 'May 2021 – Aug 2021',
+            bullets: [
+                'Used AutoCAD and ArchCAD for network design and planning.',
+                'Generated network traces using Fast Reporter software.',
+                'Monitored live networks using an NMS (Network Management System) platform.',
+                'Provided in-office technical support.'
+            ]
+        },
+        {
+            role: 'Attachee',
+            company: 'Jeremiah Nyaga Technical Institute',
+            period: 'May 2019 – Aug 2019',
+            bullets: [
+                'Built and configured computer networks.',
+                'Installed computer software, including operating systems, Microsoft Office, and design applications.',
+                'Performed basic electrical installation and troubleshooting.',
+                'Carried out basic solar system installation and troubleshooting.',
+                'Diagnosed and repaired computer hardware faults.'
+            ]
+        }
+    ],
     linkedin: '',
     portfolio: 'https://www.youtube.com/@MSAMBWENI-TVC',
     registeredAt: '2026-01-01'
@@ -682,6 +864,10 @@ const DEFAULT_FOUNDER = {
 let currentUser = null;
 let pendingRegPhoto = null;
 let pendingEditPhoto = null;
+let pendingEditGallery = [];
+let showcaseIndex = 0;
+let showcaseTimer = null;
+let showcasePaused = false;
 
 /* ═══════════════════════════════════════════════════════════════
    HELPERS
@@ -690,9 +876,17 @@ function esc(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&
 function initials(name){ return String(name||'?').trim().split(/\s+/).slice(0,2).map(w=>w[0]).join('').toUpperCase(); }
 function escapeAttr(s){ return esc(s); }
 
-function fileToDataURL(file, maxW = 500, maxH = 500, quality = 0.82){
+function isValidImage(file){
+    if(!file) return false;
+    const t = (file.type||'').toLowerCase();
+    const n = (file.name||'').toLowerCase();
+    return ['image/jpeg','image/jpg','image/png'].includes(t) || /\.(jpe?g|png)$/.test(n);
+}
+
+function fileToDataURL(file, maxW = 900, maxH = 900, quality = 0.85){
     return new Promise((resolve, reject) => {
         if(!file) return reject('No file');
+        if(!isValidImage(file)) return reject('Please upload a JPEG or PNG image.');
         const reader = new FileReader();
         reader.onload = e => {
             const img = new Image();
@@ -717,33 +911,99 @@ function fileToDataURL(file, maxW = 500, maxH = 500, quality = 0.82){
     });
 }
 
+function parseCertifications(text){
+    const blocks = String(text||'').trim().split(/\n\s*\n/).filter(Boolean);
+    const result = [];
+    blocks.forEach(block => {
+        const lines = block.split('\n').map(l => l.trim()).filter(Boolean);
+        if(!lines.length) return;
+        const first = lines[0];
+        const pipeIdx = first.indexOf('|');
+        let title = first, period = '';
+        if(pipeIdx !== -1){ title = first.slice(0, pipeIdx).trim(); period = first.slice(pipeIdx + 1).trim(); }
+        const bullets = lines.slice(1).filter(l => /^[-•]/.test(l)).map(l => l.replace(/^[-•]\s*/, '').trim());
+        if(title) result.push({ title, period, bullets });
+    });
+    return result;
+}
+function formatCertifications(certs){
+    return (certs||[]).map(c => {
+        let out = c.title + (c.period ? ' | ' + c.period : '');
+        if(c.bullets && c.bullets.length) out += '\n' + c.bullets.map(b => '- ' + b).join('\n');
+        return out;
+    }).join('\n\n');
+}
+
+function parseExperience(text){
+    const blocks = String(text||'').trim().split(/\n\s*\n/).filter(Boolean);
+    const result = [];
+    blocks.forEach(block => {
+        const lines = block.split('\n').map(l => l.trim()).filter(Boolean);
+        if(!lines.length) return;
+        const parts = lines[0].split('|').map(p => p.trim());
+        const role = parts[0] || '';
+        const company = parts[1] || '';
+        const period = parts[2] || '';
+        const bullets = lines.slice(1).filter(l => /^[-•]/.test(l)).map(l => l.replace(/^[-•]\s*/, '').trim());
+        if(role) result.push({ role, company, period, bullets });
+    });
+    return result;
+}
+function formatExperience(exp){
+    return (exp||[]).map(e => {
+        let out = `${e.role} | ${e.company} | ${e.period}`;
+        if(e.bullets && e.bullets.length) out += '\n' + e.bullets.map(b => '- ' + b).join('\n');
+        return out;
+    }).join('\n\n');
+}
+
 /* ═══════════════════════════════════════════════════════════════
-   STORAGE
+   STORAGE — merges hardcoded code-based photos so everyone sees them
    ═══════════════════════════════════════════════════════════════ */
 function getEngineers(){
     const raw = localStorage.getItem(ENGINEERS_KEY);
     if(!raw){
-        const seed = [DEFAULT_FOUNDER];
+        const founder = JSON.parse(JSON.stringify(DEFAULT_FOUNDER));
+        founder.photo = FOUNDER_PROFILE_PHOTO || '';
+        founder.gallery = FOUNDER_PHOTOS.filter(Boolean).slice();
+        const seed = [founder];
         localStorage.setItem(ENGINEERS_KEY, JSON.stringify(seed));
         return seed;
     }
-    try { return JSON.parse(raw); } catch(e){ return [DEFAULT_FOUNDER]; }
+    try {
+        const parsed = JSON.parse(raw);
+        const fi = parsed.findIndex(e => e.isFounder);
+        if(fi !== -1){
+            parsed[fi] = Object.assign({}, DEFAULT_FOUNDER, parsed[fi]);
+            if(!parsed[fi].certifications || !parsed[fi].certifications.length) parsed[fi].certifications = DEFAULT_FOUNDER.certifications;
+            if(!parsed[fi].experience || !parsed[fi].experience.length) parsed[fi].experience = DEFAULT_FOUNDER.experience;
+
+            /* Merge hardcoded profile photo (if set) */
+            if(FOUNDER_PROFILE_PHOTO){ parsed[fi].photo = FOUNDER_PROFILE_PHOTO; }
+
+            /* Merge hardcoded gallery photos — always in front, deduplicated */
+            const uploaded = Array.isArray(parsed[fi].gallery) ? parsed[fi].gallery : [];
+            const codePhotos = FOUNDER_PHOTOS.filter(Boolean);
+            const merged = [];
+            codePhotos.forEach(p => { if(p && !merged.includes(p)) merged.push(p); });
+            uploaded.forEach(p => { if(p && !merged.includes(p)) merged.push(p); });
+            parsed[fi].gallery = merged;
+        }
+        return parsed;
+    } catch(e){
+        const founder = JSON.parse(JSON.stringify(DEFAULT_FOUNDER));
+        founder.photo = FOUNDER_PROFILE_PHOTO || '';
+        founder.gallery = FOUNDER_PHOTOS.filter(Boolean).slice();
+        return [founder];
+    }
 }
 function setEngineers(list){ localStorage.setItem(ENGINEERS_KEY, JSON.stringify(list)); }
 
-function getContacts(){
-    const raw = localStorage.getItem(CONTACTS_KEY);
-    if(!raw){ localStorage.setItem(CONTACTS_KEY, '[]'); return []; }
-    try { return JSON.parse(raw); } catch(e){ return []; }
-}
+function getContacts(){ try{ return JSON.parse(localStorage.getItem(CONTACTS_KEY)||'[]'); }catch(e){ return []; } }
 function setContacts(list){ localStorage.setItem(CONTACTS_KEY, JSON.stringify(list)); }
-function logContact(entry){
-    const list = getContacts();
-    list.push({ ...entry, at: new Date().toISOString() });
-    setContacts(list);
-}
+function logContact(entry){ const l = getContacts(); l.push(Object.assign({}, entry, { at: new Date().toISOString() })); setContacts(l); }
 
-function saveSession(user){ try{ localStorage.setItem(SESSION_KEY, JSON.stringify({ id:user.id, email:user.email, role:user.role })); }catch(e){} }
+function saveSession(u){ try{ localStorage.setItem(SESSION_KEY, JSON.stringify({ id:u.id, email:u.email, role:u.role })); }catch(e){} }
 function clearSession(){ try{ localStorage.removeItem(SESSION_KEY); }catch(e){} }
 function loadSession(){
     try {
@@ -758,8 +1018,7 @@ function loadSession(){
    AUTH
    ═══════════════════════════════════════════════════════════════ */
 function login(email, password){
-    const users = getEngineers();
-    const u = users.find(x => x.email.toLowerCase() === email.toLowerCase());
+    const u = getEngineers().find(x => x.email.toLowerCase() === email.toLowerCase());
     if(!u) return { ok:false, msg:'No account found with that email.' };
     if(u.password !== password) return { ok:false, msg:'Incorrect password.' };
     return { ok:true, user:u };
@@ -770,22 +1029,13 @@ function registerEngineer(data){
     if(data.password.length < 6) return { ok:false, msg:'Password must be at least 6 characters.' };
     const newEng = {
         id: 'eng' + Date.now(),
-        fullName: data.fullName,
-        email: data.email,
-        password: data.password,
-        phone: data.phone,
-        whatsapp: data.phone,
-        specialty: data.specialty,
-        location: data.location,
-        bio: data.bio,
-        skills: [],
-        yearsExperience: 0,
-        linkedin: '',
-        portfolio: '',
-        photo: data.photo || '',
-        role: 'engineer',
-        isFounder: false,
-        verified: false,
+        fullName: data.fullName, email: data.email, password: data.password,
+        phone: data.phone, whatsapp: data.phone,
+        specialty: data.specialty, location: data.location, bio: data.bio,
+        skills: [], yearsExperience: 0, linkedin: '', portfolio: '',
+        photo: data.photo || '', gallery: [],
+        certifications: [], experience: [],
+        role: 'engineer', isFounder: false, verified: false,
         registeredAt: new Date().toISOString().slice(0,10)
     };
     users.push(newEng);
@@ -800,13 +1050,11 @@ function renderStats(){
     const list = getEngineers();
     document.getElementById('statTotal').textContent = list.length;
     document.getElementById('statVerified').textContent = list.filter(e => e.verified).length;
-    const specs = new Set(list.map(e => e.specialty).filter(Boolean));
-    document.getElementById('statSpecs').textContent = specs.size;
+    document.getElementById('statSpecs').textContent = new Set(list.map(e => e.specialty).filter(Boolean)).size;
 }
 
 function renderSpecFilter(){
-    const list = getEngineers();
-    const specs = Array.from(new Set(list.map(e => e.specialty).filter(Boolean))).sort();
+    const specs = Array.from(new Set(getEngineers().map(e => e.specialty).filter(Boolean))).sort();
     const sel = document.getElementById('specFilter');
     const current = sel.value;
     sel.innerHTML = '<option value="">All Specialties</option>' + specs.map(s => `<option value="${escapeAttr(s)}">${esc(s)}</option>`).join('');
@@ -817,12 +1065,7 @@ function filterEngineers(){
     const q = document.getElementById('searchInput').value.trim().toLowerCase();
     const spec = document.getElementById('specFilter').value;
     const sort = document.getElementById('sortFilter').value;
-
-    let list = getEngineers();
-
-    /* Public directory: exclude no one — but exclude admin/founder (shown in featured) */
-    list = list.filter(e => !e.isFounder);
-
+    let list = getEngineers().filter(e => !e.isFounder);
     if(spec) list = list.filter(e => e.specialty === spec);
     if(q){
         list = list.filter(e => {
@@ -830,35 +1073,23 @@ function filterEngineers(){
             return hay.includes(q);
         });
     }
-
     if(sort === 'name') list.sort((a,b) => a.fullName.localeCompare(b.fullName));
     else if(sort === 'verified') list.sort((a,b) => (b.verified?1:0) - (a.verified?1:0));
     else list.sort((a,b) => (b.registeredAt||'').localeCompare(a.registeredAt||''));
-
     return list;
 }
 
 function renderDirectory(){
     const grid = document.getElementById('engGrid');
     const list = filterEngineers();
-    const countEl = document.getElementById('resultCount');
-    countEl.textContent = `${list.length} engineer${list.length === 1 ? '' : 's'} found`;
-
+    document.getElementById('resultCount').textContent = `${list.length} engineer${list.length === 1 ? '' : 's'} found`;
     if(!list.length){
-        grid.innerHTML = `
-            <div class="empty-state" style="grid-column:1/-1;">
-                <i class="fas fa-user-slash"></i>
-                <h3>No engineers found</h3>
-                <p>Try clearing filters, or be the first engineer to register!</p>
-            </div>`;
+        grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1;"><i class="fas fa-user-slash"></i><h3>No engineers found</h3><p>Try clearing filters, or be the first engineer to register!</p></div>`;
         return;
     }
-
     grid.innerHTML = list.map(e => {
         const isOwn = currentUser && currentUser.email === e.email;
-        const photo = e.photo
-            ? `<img src="${escapeAttr(e.photo)}" alt="${escapeAttr(e.fullName)}">`
-            : esc(initials(e.fullName));
+        const photo = e.photo ? `<img src="${escapeAttr(e.photo)}" alt="">` : esc(initials(e.fullName));
         const badges = [];
         if(e.verified) badges.push(`<span class="eng-badge verified"><i class="fas fa-check-circle"></i> Verified</span>`);
         if(isOwn) badges.push(`<span class="eng-badge you"><i class="fas fa-user"></i> You</span>`);
@@ -882,8 +1113,7 @@ function renderDirectory(){
                 <div class="eng-actions">
                     ${isOwn
                         ? `<button class="eng-btn eng-btn-edit" onclick="openEditProfile()"><i class="fas fa-edit"></i> Edit My Profile</button>`
-                        : `<button class="eng-btn eng-btn-contact" onclick="openContact('${escapeAttr(e.id)}')"><i class="fas fa-paper-plane"></i> Contact</button>`
-                    }
+                        : `<button class="eng-btn eng-btn-contact" onclick="openContact('${escapeAttr(e.id)}')"><i class="fas fa-paper-plane"></i> Contact</button>`}
                 </div>
             </div>
         </div>`;
@@ -891,38 +1121,78 @@ function renderDirectory(){
 }
 
 function renderFounder(){
-    const list = getEngineers();
-    const f = list.find(e => e.isFounder) || DEFAULT_FOUNDER;
+    const f = getEngineers().find(e => e.isFounder) || DEFAULT_FOUNDER;
     const el = document.getElementById('founderPhoto');
-    if(el){
-        el.innerHTML = f.photo ? `<img src="${escapeAttr(f.photo)}" alt="Samson">` : esc(initials(f.fullName));
+    if(el) el.innerHTML = f.photo ? `<img src="${escapeAttr(f.photo)}" alt="Samson">` : esc(initials(f.fullName));
+    const chips = document.getElementById('founderChips');
+    if(chips) chips.innerHTML = (f.skills||[]).slice(0,8).map(s => `<span class="chip">${esc(s)}</span>`).join('');
+}
+
+function renderShowcase(){
+    const wrap = document.getElementById('showcaseCarousel');
+    if(!wrap) return;
+    const founder = getEngineers().find(x => x.isFounder);
+    const photos = (founder && founder.gallery) || [];
+    document.getElementById('showcaseCount').textContent = `${photos.length} photo${photos.length === 1 ? '' : 's'}`;
+
+    if(!photos.length){
+        wrap.innerHTML = `<div class="showcase-empty"><i class="fas fa-photo-film"></i><p>No showcase photos yet</p><small>Open the code and look for <code>★ ADD YOUR PHOTOS HERE ★</code> near the top of the script — paste your JPEG file names into <code>FOUNDER_PHOTOS</code> and refresh.</small></div>`;
+        clearInterval(showcaseTimer);
+        return;
     }
+
+    wrap.innerHTML = photos.map((p,i) => `
+        <div class="showcase-slide ${i===0?'active':''}" data-index="${i}">
+            <img src="${escapeAttr(p)}" alt="Showcase ${i+1}">
+        </div>`).join('') + `
+        ${photos.length > 1 ? `<div class="showcase-dots">${photos.map((_,i)=>`<button class="showcase-dot ${i===0?'active':''}" data-dot="${i}" aria-label="Slide ${i+1}"></button>`).join('')}</div>` : ''}
+        ${photos.length > 1 ? `<button class="showcase-nav prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>` : ''}
+        ${photos.length > 1 ? `<button class="showcase-nav next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>` : ''}`;
+
+    showcaseIndex = 0;
+    wrap.querySelectorAll('.showcase-dot').forEach(dot => {
+        dot.addEventListener('click', () => { goToSlide(parseInt(dot.dataset.dot)); resetShowcaseTimer(); });
+    });
+    const prev = wrap.querySelector('.prev');
+    const next = wrap.querySelector('.next');
+    if(prev) prev.addEventListener('click', () => { goToSlide(showcaseIndex-1); resetShowcaseTimer(); });
+    if(next) next.addEventListener('click', () => { goToSlide(showcaseIndex+1); resetShowcaseTimer(); });
+    wrap.addEventListener('mouseenter', () => { showcasePaused = true; clearInterval(showcaseTimer); });
+    wrap.addEventListener('mouseleave', () => { showcasePaused = false; resetShowcaseTimer(); });
+    resetShowcaseTimer();
+}
+
+function goToSlide(i){
+    const slides = document.querySelectorAll('.showcase-slide');
+    const dots = document.querySelectorAll('.showcase-dot');
+    if(!slides.length) return;
+    showcaseIndex = ((i % slides.length) + slides.length) % slides.length;
+    slides.forEach((s, idx) => s.classList.toggle('active', idx === showcaseIndex));
+    dots.forEach((d, idx) => d.classList.toggle('active', idx === showcaseIndex));
+}
+function resetShowcaseTimer(){
+    clearInterval(showcaseTimer);
+    if(showcasePaused) return;
+    const slides = document.querySelectorAll('.showcase-slide');
+    if(slides.length < 2) return;
+    showcaseTimer = setInterval(() => goToSlide(showcaseIndex+1), 4500);
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   AUTH MODALS
+   MODALS
    ═══════════════════════════════════════════════════════════════ */
 function openModal(id){ document.getElementById(id).classList.add('active'); }
 function closeModal(id){ document.getElementById(id).classList.remove('active'); }
-document.querySelectorAll('[data-close]').forEach(btn => {
-    btn.addEventListener('click', () => closeModal(btn.dataset.close));
-});
-document.querySelectorAll('.modal-overlay').forEach(ov => {
-    ov.addEventListener('click', e => { if(e.target === ov) ov.classList.remove('active'); });
-});
+document.querySelectorAll('[data-close]').forEach(btn => btn.addEventListener('click', () => closeModal(btn.dataset.close)));
+document.querySelectorAll('.modal-overlay').forEach(ov => ov.addEventListener('click', e => { if(e.target === ov) ov.classList.remove('active'); }));
 
 function switchAuthTab(tab){
     document.querySelectorAll('.auth-tab').forEach(t => t.classList.toggle('active', t.dataset.authTab === tab));
     document.querySelectorAll('.auth-panel').forEach(p => p.classList.remove('active'));
     document.getElementById('panel-' + tab).classList.add('active');
 }
-
-document.querySelectorAll('.auth-tab').forEach(btn => {
-    btn.addEventListener('click', () => switchAuthTab(btn.dataset.authTab));
-});
-document.querySelectorAll('.switch-tab').forEach(a => {
-    a.addEventListener('click', e => { e.preventDefault(); switchAuthTab(a.dataset.to); });
-});
+document.querySelectorAll('.auth-tab').forEach(btn => btn.addEventListener('click', () => switchAuthTab(btn.dataset.authTab)));
+document.querySelectorAll('.switch-tab').forEach(a => a.addEventListener('click', e => { e.preventDefault(); switchAuthTab(a.dataset.to); }));
 
 document.getElementById('openAuthBtn').addEventListener('click', () => { switchAuthTab('login'); openModal('authModal'); });
 document.getElementById('heroRegisterBtn').addEventListener('click', () => { switchAuthTab('register'); openModal('authModal'); });
@@ -930,16 +1200,15 @@ document.getElementById('heroBrowseBtn').addEventListener('click', () => documen
 document.getElementById('footRegister').addEventListener('click', e => { e.preventDefault(); switchAuthTab('register'); openModal('authModal'); });
 document.getElementById('footLogin').addEventListener('click', e => { e.preventDefault(); switchAuthTab('login'); openModal('authModal'); });
 
-/* Register photo upload */
 document.getElementById('regPhotoInput').addEventListener('change', e => {
     const f = e.target.files?.[0]; if(!f) return;
+    if(!isValidImage(f)){ alert('Please upload a JPEG or PNG image.'); e.target.value=''; return; }
     fileToDataURL(f, 500, 500, 0.85).then(d => {
         pendingRegPhoto = d;
         document.getElementById('regPhotoPreview').innerHTML = `<img src="${d}">`;
-    });
+    }).catch(err => alert(err));
 });
 
-/* Register submit */
 document.getElementById('registerSubmitBtn').addEventListener('click', () => {
     const alertEl = document.getElementById('registerAlert');
     alertEl.className = 'alert'; alertEl.textContent = '';
@@ -955,33 +1224,18 @@ document.getElementById('registerSubmitBtn').addEventListener('click', () => {
         photo: pendingRegPhoto
     };
     if(!data.fullName || !data.email || !data.phone || !data.password || !data.specialty || !data.location || !data.bio){
-        alertEl.className = 'alert error';
-        alertEl.textContent = 'Please fill all required fields.';
-        return;
+        alertEl.className = 'alert error'; alertEl.textContent = 'Please fill all required fields.'; return;
     }
-    if(data.password !== data.confirm){
-        alertEl.className = 'alert error';
-        alertEl.textContent = 'Passwords do not match.';
-        return;
-    }
+    if(data.password !== data.confirm){ alertEl.className = 'alert error'; alertEl.textContent = 'Passwords do not match.'; return; }
     const res = registerEngineer(data);
-    if(!res.ok){
-        alertEl.className = 'alert error';
-        alertEl.textContent = res.msg;
-        return;
-    }
-    alertEl.className = 'alert success';
-    alertEl.textContent = '✅ Account created! You are now signed in. Your profile is pending admin verification.';
+    if(!res.ok){ alertEl.className = 'alert error'; alertEl.textContent = res.msg; return; }
+    alertEl.className = 'alert success'; alertEl.textContent = '✅ Account created! You are now signed in.';
     setTimeout(() => {
-        closeModal('authModal');
-        clearAuthForm();
-        currentUser = res.user;
-        saveSession(res.user);
-        onLoginSuccess(res.user);
+        closeModal('authModal'); clearAuthForm();
+        currentUser = res.user; saveSession(res.user); onLoginSuccess(res.user);
     }, 1200);
 });
 
-/* Login submit */
 document.getElementById('loginSubmitBtn').addEventListener('click', () => {
     const alertEl = document.getElementById('loginAlert');
     alertEl.className = 'alert'; alertEl.textContent = '';
@@ -990,18 +1244,12 @@ document.getElementById('loginSubmitBtn').addEventListener('click', () => {
     if(!email || !pwd){ alertEl.className = 'alert error'; alertEl.textContent = 'Enter email and password.'; return; }
     const res = login(email, pwd);
     if(!res.ok){ alertEl.className = 'alert error'; alertEl.textContent = res.msg; return; }
-    currentUser = res.user;
-    saveSession(res.user);
-    closeModal('authModal');
-    clearAuthForm();
-    onLoginSuccess(res.user);
+    currentUser = res.user; saveSession(res.user); closeModal('authModal'); clearAuthForm(); onLoginSuccess(res.user);
 });
 
 function clearAuthForm(){
-    ['regFullName','regEmail','regPhone','regPassword','regConfirm','regLocation','regBio'].forEach(id => document.getElementById(id).value = '');
+    ['regFullName','regEmail','regPhone','regPassword','regConfirm','regLocation','regBio','loginEmail','loginPassword'].forEach(id => document.getElementById(id).value = '');
     document.getElementById('regSpecialty').value = '';
-    document.getElementById('loginEmail').value = '';
-    document.getElementById('loginPassword').value = '';
     document.getElementById('regPhotoPreview').innerHTML = '<i class="fas fa-user"></i>';
     pendingRegPhoto = null;
 }
@@ -1014,44 +1262,49 @@ function onLoginSuccess(user){
         document.getElementById('adminAvatar').innerHTML = user.photo ? `<img src="${escapeAttr(user.photo)}">` : esc(initials(user.fullName));
         renderAdminPanel();
     } else {
-        /* Engineer */
         document.getElementById('adminPanel').classList.remove('active');
         document.getElementById('publicView').style.display = 'block';
-        const bar = document.getElementById('signedBar');
-        bar.style.display = 'flex';
+        document.getElementById('signedBar').style.display = 'flex';
         document.getElementById('signedName').textContent = user.fullName;
         document.getElementById('signedSub').textContent = user.specialty + ' • ' + (user.verified ? '✅ Verified' : '⏳ Pending verification');
         document.getElementById('signedAvatar').innerHTML = user.photo ? `<img src="${escapeAttr(user.photo)}">` : esc(initials(user.fullName));
         renderDirectory();
     }
-    renderStats();
-    renderFounder();
+    renderStats(); renderFounder(); renderShowcase();
 }
 
-/* Logout */
 function logout(){
-    currentUser = null;
-    clearSession();
+    currentUser = null; clearSession();
     document.getElementById('signedBar').style.display = 'none';
     document.getElementById('adminPanel').classList.remove('active');
     document.getElementById('publicView').style.display = 'block';
-    renderStats();
-    renderDirectory();
-    renderFounder();
+    renderStats(); renderDirectory(); renderFounder(); renderShowcase();
     window.scrollTo({top:0, behavior:'smooth'});
 }
 document.getElementById('logoutBtn').addEventListener('click', logout);
 document.getElementById('adminLogoutBtn').addEventListener('click', logout);
-
 document.getElementById('viewSiteBtn').addEventListener('click', () => {
     document.getElementById('adminPanel').classList.remove('active');
     document.getElementById('publicView').style.display = 'block';
+    renderDirectory(); renderShowcase();
     window.scrollTo({top:0, behavior:'smooth'});
 });
 
-/* ═══════════════════════════════════════════════════════════════
-   EDIT PROFILE
-   ═══════════════════════════════════════════════════════════════ */
+function renderGalleryPreview(){
+    const wrap = document.getElementById('editGalleryPreview');
+    if(!wrap) return;
+    if(!pendingEditGallery.length){
+        wrap.innerHTML = '<small style="color:#7b9a8e;">No gallery photos yet. Click "Add Photos" to upload JPEG images.</small>';
+        return;
+    }
+    wrap.innerHTML = pendingEditGallery.map((src,i) => `
+        <div style="position:relative;">
+            <img src="${src}" style="width:80px;height:80px;object-fit:cover;border-radius:10px;border:2px solid #e0ece6;">
+            <button type="button" onclick="removeGalleryPhoto(${i})" title="Remove" style="position:absolute;top:-6px;right:-6px;background:#e74c3c;color:#fff;border:none;border-radius:50%;width:22px;height:22px;cursor:pointer;font-size:.7rem;display:flex;align-items:center;justify-content:center;">✕</button>
+        </div>`).join('');
+}
+window.removeGalleryPhoto = function(i){ pendingEditGallery.splice(i,1); renderGalleryPreview(); };
+
 window.openEditProfile = function(){
     if(!currentUser) return;
     const u = currentUser;
@@ -1065,18 +1318,34 @@ window.openEditProfile = function(){
     document.getElementById('editSkills').value = (u.skills||[]).join(', ');
     document.getElementById('editLinkedin').value = u.linkedin || '';
     document.getElementById('editPortfolio').value = u.portfolio || '';
+    document.getElementById('editCerts').value = formatCertifications(u.certifications||[]);
+    document.getElementById('editExperience').value = formatExperience(u.experience||[]);
     document.getElementById('editPhotoPreview').innerHTML = u.photo ? `<img src="${escapeAttr(u.photo)}">` : '<i class="fas fa-user"></i>';
     pendingEditPhoto = null;
+    pendingEditGallery = (u.gallery || []).slice();
+    renderGalleryPreview();
     document.getElementById('editAlert').className = 'alert';
     openModal('editModal');
 };
 
 document.getElementById('editPhotoInput').addEventListener('change', e => {
     const f = e.target.files?.[0]; if(!f) return;
+    if(!isValidImage(f)){ alert('Please upload a JPEG or PNG image.'); e.target.value=''; return; }
     fileToDataURL(f, 500, 500, 0.85).then(d => {
         pendingEditPhoto = d;
         document.getElementById('editPhotoPreview').innerHTML = `<img src="${d}">`;
-    });
+    }).catch(err => alert(err));
+});
+
+document.getElementById('editGalleryInput').addEventListener('change', async e => {
+    const files = Array.from(e.target.files || []);
+    for(const f of files){
+        if(!isValidImage(f)){ alert(`Skipping "${f.name}" — only JPEG/PNG allowed.`); continue; }
+        try { const d = await fileToDataURL(f, 900, 900, 0.82); pendingEditGallery.push(d); }
+        catch(err){ console.warn(err); }
+    }
+    renderGalleryPreview();
+    e.target.value = '';
 });
 
 document.getElementById('editSaveBtn').addEventListener('click', () => {
@@ -1088,12 +1357,17 @@ document.getElementById('editSaveBtn').addEventListener('click', () => {
     const specialty = document.getElementById('editSpecialty').value;
     const location = document.getElementById('editLocation').value.trim();
     if(!fullName || !phone || !bio || !specialty || !location){
-        alertEl.className = 'alert error'; alertEl.textContent = 'Name, phone, bio, specialty and location are required.';
-        return;
+        alertEl.className = 'alert error'; alertEl.textContent = 'Name, phone, bio, specialty and location are required.'; return;
     }
     const users = getEngineers();
     const idx = users.findIndex(u => u.email === currentUser.email);
     if(idx === -1) return;
+
+    /* Preserve code-based photos while saving */
+    const codePhotos = FOUNDER_PHOTOS.filter(Boolean);
+    let saveGallery = pendingEditGallery.slice();
+    codePhotos.forEach(p => { if(p && !saveGallery.includes(p)) saveGallery.unshift(p); });
+
     users[idx].fullName = fullName;
     users[idx].phone = phone;
     users[idx].whatsapp = document.getElementById('editWhatsapp').value.trim() || phone;
@@ -1104,29 +1378,77 @@ document.getElementById('editSaveBtn').addEventListener('click', () => {
     users[idx].skills = document.getElementById('editSkills').value.split(',').map(s => s.trim()).filter(Boolean);
     users[idx].linkedin = document.getElementById('editLinkedin').value.trim();
     users[idx].portfolio = document.getElementById('editPortfolio').value.trim();
+    users[idx].certifications = parseCertifications(document.getElementById('editCerts').value);
+    users[idx].experience = parseExperience(document.getElementById('editExperience').value);
+    users[idx].gallery = saveGallery;
     if(pendingEditPhoto){ users[idx].photo = pendingEditPhoto; pendingEditPhoto = null; }
     setEngineers(users);
     currentUser = users[idx];
     saveSession(currentUser);
     alertEl.className = 'alert success'; alertEl.textContent = '✅ Profile updated!';
-    setTimeout(() => {
-        closeModal('editModal');
-        onLoginSuccess(currentUser);
-    }, 800);
+    setTimeout(() => { closeModal('editModal'); onLoginSuccess(currentUser); }, 800);
 });
 
 document.getElementById('editProfileBtn').addEventListener('click', () => window.openEditProfile());
+document.getElementById('adminEditBtn').addEventListener('click', () => window.openEditProfile());
 
-/* ═══════════════════════════════════════════════════════════════
-   CONTACT MODAL
-   ═══════════════════════════════════════════════════════════════ */
+window.openProfile = function(id){
+    const f = getEngineers().find(x => x.id === id);
+    if(!f) return;
+    const body = document.getElementById('profileModalBody');
+    const photo = f.photo ? `<img src="${escapeAttr(f.photo)}">` : esc(initials(f.fullName));
+    const skills = (f.skills||[]).map(s => `<span class="skill-chip">${esc(s)}</span>`).join('');
+    const certs = (f.certifications||[]).map(c => `
+        <div class="cert-block">
+            <div class="cert-title">${esc(c.title||'')}</div>
+            ${c.period ? `<div class="cert-period">${esc(c.period)}</div>` : ''}
+            ${(c.bullets||[]).length ? `<ul>${c.bullets.map(b => `<li>${esc(b)}</li>`).join('')}</ul>` : ''}
+        </div>`).join('');
+    const experience = (f.experience||[]).map(ex => `
+        <div class="exp-item">
+            <div class="exp-role">${esc(ex.role)}</div>
+            <div class="exp-company">${esc(ex.company)}</div>
+            <div class="exp-period">${esc(ex.period)}</div>
+            ${(ex.bullets||[]).length ? `<ul>${ex.bullets.map(b => `<li>${esc(b)}</li>`).join('')}</ul>` : ''}
+        </div>`).join('');
+    const gallery = (f.gallery||[]).length ? `
+        <div class="profile-section">
+            <h4><i class="fas fa-images"></i> Photo Gallery</h4>
+            <div class="gallery-grid">
+                ${f.gallery.map(g => `<img src="${escapeAttr(g)}" alt="Gallery photo" onclick="window.open(this.src,'_blank')">`).join('')}
+            </div>
+        </div>` : '';
+
+    body.innerHTML = `
+        <div class="profile-hero">
+            <div class="avatar">${photo}</div>
+            <div>
+                <h2>${esc(f.fullName)}</h2>
+                <div class="role">${esc(f.specialty || 'Engineer')}</div>
+                <div class="loc"><i class="fas fa-location-dot"></i> ${esc(f.location || '—')}</div>
+                ${f.yearsExperience ? `<div class="loc"><i class="fas fa-briefcase"></i> ${f.yearsExperience} years experience</div>` : ''}
+                ${f.phone ? `<div class="loc"><i class="fas fa-phone"></i> ${esc(f.phone)}</div>` : ''}
+                ${f.email ? `<div class="loc"><i class="fas fa-envelope"></i> ${esc(f.email)}</div>` : ''}
+            </div>
+        </div>
+        ${f.bio ? `<div class="profile-section"><h4><i class="fas fa-user"></i> About</h4><p>${esc(f.bio)}</p></div>` : ''}
+        ${skills ? `<div class="profile-section"><h4><i class="fas fa-tools"></i> Skills &amp; Expertise</h4><div class="eng-skills">${skills}</div></div>` : ''}
+        ${certs ? `<div class="profile-section"><h4><i class="fas fa-certificate"></i> Certifications &amp; Training</h4>${certs}</div>` : ''}
+        ${experience ? `<div class="profile-section"><h4><i class="fas fa-briefcase"></i> Professional Experience</h4>${experience}</div>` : ''}
+        ${gallery}
+    `;
+    openModal('profileModal');
+};
+
+document.getElementById('viewFounderProfileBtn').addEventListener('click', () => {
+    const f = getEngineers().find(x => x.isFounder);
+    if(f) window.openProfile(f.id);
+});
+
 window.openContact = function(id){
-    const list = getEngineers();
-    const e = list.find(x => x.id === id);
+    const e = getEngineers().find(x => x.id === id);
     if(!e) return;
-    const photo = e.photo
-        ? `<img src="${escapeAttr(e.photo)}">`
-        : esc(initials(e.fullName));
+    const photo = e.photo ? `<img src="${escapeAttr(e.photo)}">` : esc(initials(e.fullName));
     document.getElementById('contactCard').innerHTML = `
         <div class="contact-photo">${photo}</div>
         <div class="contact-info">
@@ -1134,54 +1456,27 @@ window.openContact = function(id){
             <div class="spec">${esc(e.specialty||'Engineer')}</div>
             <div class="loc"><i class="fas fa-location-dot"></i> ${esc(e.location||'—')}</div>
         </div>`;
-
     const cleanPhone = String(e.phone||'').replace(/[^\d+]/g,'');
     const cleanWa = String(e.whatsapp || e.phone || '').replace(/[^\d+]/g,'').replace(/^\+/,'');
-    const buttons = `
+    document.getElementById('contactButtons').innerHTML = `
         <a class="contact-btn call" href="tel:${escapeAttr(cleanPhone)}"><i class="fas fa-phone"></i> Call</a>
         <a class="contact-btn email" href="mailto:${escapeAttr(e.email)}"><i class="fas fa-envelope"></i> Email</a>
         <a class="contact-btn whatsapp" href="https://wa.me/${escapeAttr(cleanWa)}" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a>`;
-    document.getElementById('contactButtons').innerHTML = buttons;
-
-    /* Store current target for message form */
     window.__contactTarget = e;
-
-    /* Clear message form */
     ['msgName','msgEmail','msgPhone','msgBody'].forEach(fid => document.getElementById(fid).value = '');
     openModal('contactModal');
 };
 
 document.getElementById('sendMessageBtn').addEventListener('click', () => {
-    const e = window.__contactTarget;
-    if(!e) return;
+    const e = window.__contactTarget; if(!e) return;
     const name = document.getElementById('msgName').value.trim();
     const email = document.getElementById('msgEmail').value.trim();
     const phone = document.getElementById('msgPhone').value.trim();
     const body = document.getElementById('msgBody').value.trim();
-    if(!name || !email || !body){
-        alert('Please fill name, email and message.');
-        return;
-    }
+    if(!name || !email || !body){ alert('Please fill name, email and message.'); return; }
     const subject = `New Contact Request via Samson Tech — from ${name}`;
-    const fullBody =
-`Hi ${e.fullName},
-
-You received a new contact request on Samson Tech Solution.
-
-FROM:
-   Name  : ${name}
-   Email : ${email}
-   Phone : ${phone || '—'}
-
-MESSAGE:
-${body}
-
-—
-Sent via SamsonTech.co.ke Contact Form`;
-
-    const mailto = `mailto:${encodeURIComponent(e.email)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(fullBody)}`;
-    window.location.href = mailto;
-
+    const fullBody = `Hi ${e.fullName},\n\nYou received a new contact request on Samson Tech Solution.\n\nFROM:\n   Name  : ${name}\n   Email : ${email}\n   Phone : ${phone || '—'}\n\nMESSAGE:\n${body}\n\n—\nSent via SamsonTech.co.ke Contact Form`;
+    window.location.href = `mailto:${encodeURIComponent(e.email)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(fullBody)}`;
     logContact({ engineerName:e.fullName, engineerEmail:e.email, fromName:name, fromEmail:email, fromPhone:phone, message:body });
     closeModal('contactModal');
 });
@@ -1191,9 +1486,6 @@ document.getElementById('contactFounderBtn').addEventListener('click', () => {
     if(f) window.openContact(f.id);
 });
 
-/* ═══════════════════════════════════════════════════════════════
-   ADMIN PANEL
-   ═══════════════════════════════════════════════════════════════ */
 document.querySelectorAll('.admin-nav button').forEach(btn => {
     btn.addEventListener('click', () => {
         document.querySelectorAll('.admin-nav button').forEach(b => b.classList.remove('active'));
@@ -1206,8 +1498,6 @@ document.querySelectorAll('.admin-nav button').forEach(btn => {
 function renderAdminPanel(){
     const engineers = getEngineers();
     const contacts = getContacts();
-
-    /* Stats */
     const pending = engineers.filter(e => !e.verified && !e.isFounder).length;
     document.getElementById('adminStats').innerHTML = `
         <div class="stat-card blue"><div class="number">${engineers.length}</div><div class="label">Total Engineers</div></div>
@@ -1215,139 +1505,98 @@ function renderAdminPanel(){
         <div class="stat-card red"><div class="number">${pending}</div><div class="label">Pending Approval</div></div>
         <div class="stat-card"><div class="number">${contacts.length}</div><div class="label">Contact Requests</div></div>`;
 
-    /* Pending */
     const pendingList = engineers.filter(e => !e.verified && !e.isFounder);
     document.getElementById('tab-pending').innerHTML = `
         <div class="table-wrap">
             <h4 style="margin-bottom:.8rem;color:#0a3b2f;">⏳ Pending Approval (${pendingList.length})</h4>
-            <table>
-                <thead><tr><th>Engineer</th><th>Specialty</th><th>Location</th><th>Registered</th><th>Actions</th></tr></thead>
-                <tbody>
-                ${pendingList.length ? pendingList.map(e => `
-                    <tr>
-                        <td><div class="user-cell">
-                            <div class="avatar-tbl">${e.photo?`<img src="${escapeAttr(e.photo)}">`:esc(initials(e.fullName))}</div>
-                            <div><strong>${esc(e.fullName)}</strong><br><small style="color:#7b9a8e;">${esc(e.email)}</small></div>
-                        </div></td>
-                        <td>${esc(e.specialty)}</td>
-                        <td>${esc(e.location)}</td>
-                        <td>${esc(e.registeredAt)}</td>
-                        <td>
-                            <button class="btn-primary" style="padding:6px 14px;font-size:.75rem;" onclick="verifyEngineer('${escapeAttr(e.id)}')"><i class="fas fa-check"></i> Verify</button>
-                            <button class="btn-danger" style="padding:6px 12px;font-size:.75rem;" onclick="removeEngineer('${escapeAttr(e.id)}')"><i class="fas fa-trash"></i></button>
-                        </td>
-                    </tr>`).join('') : `<tr><td colspan="5" style="text-align:center;color:#7b9a8e;padding:1.5rem;">✅ No pending engineers</td></tr>`}
-                </tbody>
-            </table>
-        </div>`;
+            <table><thead><tr><th>Engineer</th><th>Specialty</th><th>Location</th><th>Registered</th><th>Actions</th></tr></thead>
+            <tbody>
+            ${pendingList.length ? pendingList.map(e => `
+                <tr>
+                    <td><div class="user-cell"><div class="avatar-tbl">${e.photo?`<img src="${escapeAttr(e.photo)}">`:esc(initials(e.fullName))}</div>
+                        <div><strong>${esc(e.fullName)}</strong><br><small style="color:#7b9a8e;">${esc(e.email)}</small></div></div></td>
+                    <td>${esc(e.specialty)}</td><td>${esc(e.location)}</td><td>${esc(e.registeredAt)}</td>
+                    <td>
+                        <button class="btn-primary" style="padding:6px 14px;font-size:.75rem;" onclick="verifyEngineer('${escapeAttr(e.id)}')"><i class="fas fa-check"></i> Verify</button>
+                        <button class="btn-danger" style="padding:6px 12px;font-size:.75rem;" onclick="removeEngineer('${escapeAttr(e.id)}')"><i class="fas fa-trash"></i></button>
+                    </td>
+                </tr>`).join('') : `<tr><td colspan="5" style="text-align:center;color:#7b9a8e;padding:1.5rem;">✅ No pending engineers</td></tr>`}
+            </tbody></table></div>`;
 
-    /* All engineers */
     document.getElementById('tab-all').innerHTML = `
         <div class="table-wrap">
             <h4 style="margin-bottom:.8rem;color:#0a3b2f;">👥 All Engineers (${engineers.length})</h4>
-            <table>
-                <thead><tr><th>Engineer</th><th>Specialty</th><th>Location</th><th>Status</th><th>Actions</th></tr></thead>
-                <tbody>
-                ${engineers.map(e => `
-                    <tr>
-                        <td><div class="user-cell">
-                            <div class="avatar-tbl">${e.photo?`<img src="${escapeAttr(e.photo)}">`:esc(initials(e.fullName))}</div>
-                            <div><strong>${esc(e.fullName)}</strong><br><small style="color:#7b9a8e;">${esc(e.email)}</small></div>
-                        </div></td>
-                        <td>${esc(e.specialty)}</td>
-                        <td>${esc(e.location)}</td>
-                        <td>
-                            ${e.isFounder ? '<span class="badge admin"><i class="fas fa-crown"></i> Founder</span>' : ''}
-                            ${e.verified ? '<span class="badge verified"><i class="fas fa-check-circle"></i> Verified</span>' : '<span class="badge pending"><i class="fas fa-clock"></i> Pending</span>'}
-                        </td>
-                        <td>
-                            ${e.isFounder ? '<em style="color:#7b9a8e;font-size:.78rem;">Protected</em>' : `
-                                ${!e.verified ? `<button class="btn-primary" style="padding:5px 12px;font-size:.72rem;" onclick="verifyEngineer('${escapeAttr(e.id)}')"><i class="fas fa-check"></i></button>` : ''}
-                                <button class="btn-danger" style="padding:5px 12px;font-size:.72rem;" onclick="removeEngineer('${escapeAttr(e.id)}')"><i class="fas fa-trash"></i></button>
-                            `}
-                        </td>
-                    </tr>`).join('')}
-                </tbody>
-            </table>
-        </div>`;
+            <table><thead><tr><th>Engineer</th><th>Specialty</th><th>Location</th><th>Status</th><th>Actions</th></tr></thead>
+            <tbody>
+            ${engineers.map(e => `
+                <tr>
+                    <td><div class="user-cell"><div class="avatar-tbl">${e.photo?`<img src="${escapeAttr(e.photo)}">`:esc(initials(e.fullName))}</div>
+                        <div><strong>${esc(e.fullName)}</strong><br><small style="color:#7b9a8e;">${esc(e.email)}</small></div></div></td>
+                    <td>${esc(e.specialty)}</td><td>${esc(e.location)}</td>
+                    <td>
+                        ${e.isFounder ? '<span class="badge admin"><i class="fas fa-crown"></i> Founder</span>' : ''}
+                        ${e.verified ? '<span class="badge verified"><i class="fas fa-check-circle"></i> Verified</span>' : '<span class="badge pending"><i class="fas fa-clock"></i> Pending</span>'}
+                    </td>
+                    <td>
+                        ${e.isFounder ? '<em style="color:#7b9a8e;font-size:.78rem;">Protected</em>' : `
+                            ${!e.verified ? `<button class="btn-primary" style="padding:5px 12px;font-size:.72rem;" onclick="verifyEngineer('${escapeAttr(e.id)}')"><i class="fas fa-check"></i></button>` : ''}
+                            <button class="btn-danger" style="padding:5px 12px;font-size:.72rem;" onclick="removeEngineer('${escapeAttr(e.id)}')"><i class="fas fa-trash"></i></button>`}
+                    </td>
+                </tr>`).join('')}
+            </tbody></table></div>`;
 
-    /* Contact log */
     document.getElementById('tab-contacts').innerHTML = `
         <div class="table-wrap">
             <h4 style="margin-bottom:.8rem;color:#0a3b2f;">📧 Contact Requests (${contacts.length})</h4>
-            <table>
-                <thead><tr><th>Engineer</th><th>From</th><th>Message</th><th>Date</th></tr></thead>
-                <tbody>
-                ${contacts.length ? contacts.slice().reverse().map(c => `
-                    <tr>
-                        <td><strong>${esc(c.engineerName)}</strong><br><small>${esc(c.engineerEmail)}</small></td>
-                        <td><strong>${esc(c.fromName)}</strong><br><small>${esc(c.fromEmail)}${c.fromPhone?'<br>'+esc(c.fromPhone):''}</small></td>
-                        <td style="max-width:320px;"><small>${esc(c.message)}</small></td>
-                        <td><small>${new Date(c.at).toLocaleString('en-GB')}</small></td>
-                    </tr>`).join('') : `<tr><td colspan="4" style="text-align:center;color:#7b9a8e;padding:1.5rem;">No contact requests yet</td></tr>`}
-                </tbody>
-            </table>
-        </div>`;
+            <table><thead><tr><th>Engineer</th><th>From</th><th>Message</th><th>Date</th></tr></thead>
+            <tbody>
+            ${contacts.length ? contacts.slice().reverse().map(c => `
+                <tr>
+                    <td><strong>${esc(c.engineerName)}</strong><br><small>${esc(c.engineerEmail)}</small></td>
+                    <td><strong>${esc(c.fromName)}</strong><br><small>${esc(c.fromEmail)}${c.fromPhone?'<br>'+esc(c.fromPhone):''}</small></td>
+                    <td style="max-width:320px;"><small>${esc(c.message)}</small></td>
+                    <td><small>${new Date(c.at).toLocaleString('en-GB')}</small></td>
+                </tr>`).join('') : `<tr><td colspan="4" style="text-align:center;color:#7b9a8e;padding:1.5rem;">No contact requests yet</td></tr>`}
+            </tbody></table></div>`;
 }
 
 window.verifyEngineer = function(id){
-    const users = getEngineers();
-    const idx = users.findIndex(e => e.id === id);
+    const users = getEngineers(); const idx = users.findIndex(e => e.id === id);
     if(idx === -1) return;
-    users[idx].verified = true;
-    setEngineers(users);
-    renderAdminPanel();
-    renderStats();
-    renderDirectory();
+    users[idx].verified = true; setEngineers(users);
+    renderAdminPanel(); renderStats(); renderDirectory();
 };
-
 window.removeEngineer = function(id){
     if(!confirm('Remove this engineer permanently?')) return;
     const users = getEngineers().filter(e => e.id !== id);
-    setEngineers(users);
-    renderAdminPanel();
-    renderStats();
-    renderDirectory();
-    renderSpecFilter();
+    setEngineers(users); renderAdminPanel(); renderStats(); renderDirectory(); renderSpecFilter();
 };
 
-/* ═══════════════════════════════════════════════════════════════
-   CLOCK
-   ═══════════════════════════════════════════════════════════════ */
 function startClock(){
     function tick(){
-        const now = new Date();
-        const time = now.toLocaleTimeString('en-GB', {hour12:false});
+        const time = new Date().toLocaleTimeString('en-GB', {hour12:false});
         const tc = document.getElementById('topbarClock');
         if(tc) tc.innerHTML = `<span class="live-dot"></span> ${time}`;
     }
-    tick();
-    setInterval(tick, 1000);
+    tick(); setInterval(tick, 1000);
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   INIT
-   ═══════════════════════════════════════════════════════════════ */
 document.addEventListener('DOMContentLoaded', () => {
-    getEngineers(); /* ensures seed */
+    getEngineers();
     renderSpecFilter();
     renderStats();
     renderDirectory();
     renderFounder();
+    renderShowcase();
     startClock();
 
-    /* search events */
     document.getElementById('searchBtn').addEventListener('click', renderDirectory);
     document.getElementById('searchInput').addEventListener('input', renderDirectory);
     document.getElementById('specFilter').addEventListener('change', renderDirectory);
     document.getElementById('sortFilter').addEventListener('change', renderDirectory);
 
-    /* restore session */
     const u = loadSession();
-    if(u){
-        currentUser = u;
-        onLoginSuccess(u);
-    }
+    if(u){ currentUser = u; onLoginSuccess(u); }
 });
 </script>
 </body>
