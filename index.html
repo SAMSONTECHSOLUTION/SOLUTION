@@ -126,7 +126,7 @@ body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#e8f5e9 0%
 .showcase-carousel{position:relative;width:100%;aspect-ratio:16/9;max-height:520px;border-radius:28px;overflow:hidden;background:linear-gradient(135deg,#0a3b2f,#1b6d5e);box-shadow:0 20px 50px -20px rgba(10,59,47,.5);border:3px solid #f1c40f;animation:fadeUp .6s ease both;}
 .showcase-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease;pointer-events:none;}
 .showcase-slide.active{opacity:1;pointer-events:auto;}
-.showcase-slide img{width:100%;height:100%;object-fit:cover;display:block;}
+.showcase-slide img,.showcase-slide video{width:100%;height:100%;object-fit:cover;display:block;background:#062b22;}
 .showcase-slide.active img{animation:kenBurns 10s ease-in-out infinite alternate;}
 .showcase-empty{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#a9e6cf;text-align:center;padding:2rem;gap:.5rem;}
 .showcase-empty i{font-size:4rem;color:#f1c40f;animation:floatY 3s ease-in-out infinite;margin-bottom:.5rem;}
@@ -190,8 +190,8 @@ body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#e8f5e9 0%
 .exp-item ul{margin:0;padding-left:1.1rem;font-size:.82rem;color:#3b5a4e;line-height:1.55;}
 .exp-item ul li{margin-bottom:.2rem;}
 .gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:.6rem;}
-.gallery-grid img{width:100%;height:140px;object-fit:cover;border-radius:10px;border:2px solid #e0ece6;cursor:pointer;transition:.2s;}
-.gallery-grid img:hover{transform:scale(1.04);border-color:#2ecc71;}
+.gallery-grid img,.gallery-grid video{width:100%;height:140px;object-fit:cover;border-radius:10px;border:2px solid #e0ece6;cursor:pointer;transition:.2s;background:#062b22;}
+.gallery-grid img:hover,.gallery-grid video:hover{transform:scale(1.04);border-color:#2ecc71;}
 
 .auth-tabs{display:flex;gap:.5rem;margin-bottom:1.4rem;border-bottom:2px solid #e0ece6;flex-wrap:wrap;}
 .auth-tab{background:none;border:none;padding:10px 20px;font-weight:700;cursor:pointer;color:#7b9a8e;border-bottom:3px solid transparent;transition:.2s;font-family:inherit;font-size:.88rem;margin-bottom:-2px;}
@@ -503,7 +503,7 @@ body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#e8f5e9 0%
                 <div class="photo-picker">
                     <div class="photo-preview" id="regPhotoPreview"><i class="fas fa-user"></i></div>
                     <div class="pp-text"><strong>Profile Photo</strong><small>JPG or PNG (JPEG preferred)</small></div>
-                    <label class="file-btn"><i class="fas fa-camera"></i> Upload<input type="file" id="regPhotoInput" accept="aaa.jpg,bi.jpg,b10.jpg,b3.jpg,b4.jpg,b5.jpg" hidden></label>
+                    <label class="file-btn"><i class="fas fa-camera"></i> Upload<input type="file" id="regPhotoInput" accept=".jpg,.jpeg,.png,image/jpeg,image/png" hidden></label>
                 </div>
                 <div class="form-row">
                     <div class="full">
@@ -578,10 +578,10 @@ body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#e8f5e9 0%
             <div class="photo-picker" style="flex-direction:column;align-items:stretch;">
                 <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;width:100%;">
                     <div class="pp-text" style="flex:1;">
-                        <strong><i class="fas fa-photo-film" style="color:#f1c40f;"></i> Gallery / Animation Photos (JPEG)</strong>
-                        <small>These appear in the animated showcase carousel and in your full profile gallery. Photos added via code (<code>FOUNDER_PHOTOS</code>) also appear and can be removed here.</small>
+                        <strong><i class="fas fa-photo-film" style="color:#f1c40f;"></i> Gallery / Showcase Media</strong>
+                        <small>Images and MP4 videos appear in the animated showcase carousel and your full profile gallery. Code-based media (<code>FOUNDER_PHOTOS</code>) also appear here.</small>
                     </div>
-                    <label class="file-btn"><i class="fas fa-images"></i> Add Photos<input type="file" id="editGalleryInput" accept=".jpg,.jpeg,.png,image/jpeg,image/jpg,image/png" multiple hidden></label>
+                    <label class="file-btn"><i class="fas fa-images"></i> Add Photos<input type="file" id="editGalleryInput" accept=".jpg,.jpeg,.png,.mp4,image/jpeg,image/jpg,image/png,video/mp4" multiple hidden></label>
                 </div>
                 <div id="editGalleryPreview" style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.6rem;"></div>
             </div>
@@ -735,13 +735,52 @@ body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#e8f5e9 0%
    ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
    ═══════════════════════════════════════════════════════════════════════ */
 
-const FOUNDER_PROFILE_PHOTO = ''; // e.g. 'samson.jpg'
+const FOUNDER_PROFILE_PHOTO = 'KIJANA.jpg';
 
 const FOUNDER_PHOTOS = [
-    // 'photo1.jpg',
-    // 'photo2.jpg',
-    // 'photo3.jpg',
-    // 'data:image/jpeg;base64,....',
+    'aaa.jpg',
+    'b1.jpg',
+    'b10.jpg',
+    'b2.jpg',
+    'b3.jpg',
+    'b4.jpg',
+    'b5.jpg',
+    'b6.jpg',
+    'b7.jpg',
+    'b8.jpg',
+    'build.jpg',
+    'com.jpg',
+    'elct.jpg',
+    'electrical.mp4',
+    'eng1.jpeg',
+    'eng10.jpeg',
+    'eng11.jpeg',
+    'eng12.jpeg',
+    'eng2.jpeg',
+    'eng4.jpeg',
+    'eng5.jpeg',
+    'eng6.jpeg',
+    'eng7.jpeg',
+    'eng8.jpeg',
+    'eng9.jpeg',
+    'evidio.mp4',
+    'food1.jpg',
+    'gvt.png',
+    'knec.png',
+    'kuccips.png',
+    'logo.jpg',
+    'mech.mp4',
+    'mtvc1',
+    'mtvc1.jpg',
+    'plumbing.mp4',
+    'po14.jpg',
+    'po16.jpg',
+    'pri.jpg',
+    'princii 2',
+    'wsp1.jpg',
+    'wsp2.jpg',
+    'wsp3.jpg',
+    'wsp4.jpg'
 ];
 
 /* ═══════════════════════════════════════════════════════════════
@@ -876,6 +915,7 @@ let showcasePaused = false;
 function esc(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
 function initials(name){ return String(name||'?').trim().split(/\s+/).slice(0,2).map(w=>w[0]).join('').toUpperCase(); }
 function escapeAttr(s){ return esc(s); }
+function isVideoMedia(path){ return /\\.mp4(?:[?#].*)?$/i.test(String(path||'')); }
 
 function isValidImage(file){
     if(!file) return false;
@@ -1134,7 +1174,7 @@ function renderShowcase(){
     if(!wrap) return;
     const founder = getEngineers().find(x => x.isFounder);
     const photos = (founder && founder.gallery) || [];
-    document.getElementById('showcaseCount').textContent = `${photos.length} photo${photos.length === 1 ? '' : 's'}`;
+    document.getElementById('showcaseCount').textContent = `${photos.length} item${photos.length === 1 ? '' : 's'}`;
 
     if(!photos.length){
         wrap.innerHTML = `<div class="showcase-empty"><i class="fas fa-photo-film"></i><p>No showcase photos yet</p><small>Open the code and look for <code>★ ADD YOUR PHOTOS HERE ★</code> near the top of the script — paste your JPEG file names into <code>FOUNDER_PHOTOS</code> and refresh.</small></div>`;
@@ -1144,7 +1184,9 @@ function renderShowcase(){
 
     wrap.innerHTML = photos.map((p,i) => `
         <div class="showcase-slide ${i===0?'active':''}" data-index="${i}">
-            <img src="${escapeAttr(p)}" alt="Showcase ${i+1}">
+            ${isVideoMedia(p)
+                ? `<video src="${escapeAttr(p)}" aria-label="Showcase video ${i+1}" controls muted playsinline preload="metadata"></video>`
+                : `<img src="${escapeAttr(p)}" alt="Showcase ${i+1}">`}
         </div>`).join('') + `
         ${photos.length > 1 ? `<div class="showcase-dots">${photos.map((_,i)=>`<button class="showcase-dot ${i===0?'active':''}" data-dot="${i}" aria-label="Slide ${i+1}"></button>`).join('')}</div>` : ''}
         ${photos.length > 1 ? `<button class="showcase-nav prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>` : ''}
@@ -1416,7 +1458,9 @@ window.openProfile = function(id){
         <div class="profile-section">
             <h4><i class="fas fa-images"></i> Photo Gallery</h4>
             <div class="gallery-grid">
-                ${f.gallery.map(g => `<img src="${escapeAttr(g)}" alt="Gallery photo" onclick="window.open(this.src,'_blank')">`).join('')}
+                ${f.gallery.map(g => isVideoMedia(g)
+                    ? `<video src="${escapeAttr(g)}" controls muted playsinline preload="metadata"></video>`
+                    : `<img src="${escapeAttr(g)}" alt="Gallery photo" onclick="window.open(this.src,'_blank')">`).join('')}
             </div>
         </div>` : '';
 
