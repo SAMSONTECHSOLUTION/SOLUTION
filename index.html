@@ -715,11 +715,11 @@ body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#e8f5e9 0%
    ★    2. Replace the empty strings below with your file names:         ★
    ★         const FOUNDER_PROFILE_PHOTO = 'samson.jpg';                 ★
    ★         const FOUNDER_PHOTOS = [                                    ★
-   ★             'aaa.jpg',                                           ★
-   ★             'b2.jpg',
-   ★              'b10.jpg',
-   ★             'b3.jpg',                                           ★
-   ★         ];                                                          ★
+   ★             'aaa.jpg',                                              ★
+   ★             'b2.jpg',                                               ★
+   ★             'b10.jpg',                                              ★
+   ★             'b3.jpg',                                               ★
+   ★         ];                                                         ★
    ★                                                                     ★
    ★  OPTION B — Base64 (paste the entire data URL):                     ★
    ★    const FOUNDER_PHOTOS = [                                         ★
@@ -735,51 +735,46 @@ body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#e8f5e9 0%
    ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
    ═══════════════════════════════════════════════════════════════════════ */
 
-const FOUNDER_PROFILE_PHOTO = 'KIJANA.jpg';
+const FOUNDER_PROFILE_PHOTO = 'myvc1.jpg';
 
 const FOUNDER_PHOTOS = [
     'aaa.jpg',
     'b1.jpg',
-    'b10.jpg',
+    'b10.jpg.jpg',
     'b2.jpg',
     'b3.jpg',
-    'b4.jpg',
+    'b4.png',
     'b5.jpg',
-    'b6.jpg',
-    'b7.jpg',
-    'b8.jpg',
-    'build.jpg',
-    'com.jpg',
-    'elct.jpg',
-    'electrical.mp4',
-    'eng1.jpeg',
-    'eng10.jpeg',
-    'eng11.jpeg',
-    'eng12.jpeg',
-    'eng2.jpeg',
-    'eng4.jpeg',
-    'eng5.jpeg',
-    'eng6.jpeg',
-    'eng7.jpeg',
-    'eng8.jpeg',
-    'eng9.jpeg',
-    'evidio.mp4',
-    'food1.jpg',
-    'gvt.png',
-    'knec.png',
-    'kuccips.png',
-    'logo.jpg',
-    'mech.mp4',
-    'mtvc1',
-    'mtvc1.jpg',
-    'plumbing.mp4',
-    'po14.jpg',
-    'po16.jpg',
-    'pri.jpg',
-    'princii 2',
-    'wsp1.jpg',
+    'b6.jpg.jpg',
+    'b7.jpg.jpg',
+    'b8.jpg.jpg',
+    'build.jpg.jpg',
+    'com.jpg.jpg',
+    'elct.jpg.jpg',
+    'eng1.jpg.jpg',
+    'eng10.jpg.jpg',
+    'eng11.jpg.jpg',
+    'eng12.jpg.jpg',
+    'eng2.jpg.jpg',
+    'eng4.jpg.jpg',
+    'eng5.jpg.jpg',
+    'eng6.jpg.jpg',
+    'eng7.jpg.jpg',
+    'eng8.jpg.jpg',
+    'eng9.jpg.jpg',
+    'food1.jpg.jpg',
+    'gvt.jpg.jpg',
+    'knec.jpg.jpg',
+    'kuccps.jpg.png',
+    'logo.jpg.jpg',
+    'mech.jpg.jpg',
+    'mtvc1.jpg.jpg',
+    'plumbing.jpg.jpg',
+    'po14.jpg.jpg',
+    'po16.jpg.jpg',
+    'wsp1.png',
     'wsp2.jpg',
-    'wsp3.jpg',
+    'wsp3.png',
     'wsp4.jpg'
 ];
 
@@ -915,7 +910,7 @@ let showcasePaused = false;
 function esc(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
 function initials(name){ return String(name||'?').trim().split(/\s+/).slice(0,2).map(w=>w[0]).join('').toUpperCase(); }
 function escapeAttr(s){ return esc(s); }
-function isVideoMedia(path){ return /\\.mp4(?:[?#].*)?$/i.test(String(path||'')); }
+function isVideoMedia(path){ return /\.mp4(?:[?#].*)?$/i.test(String(path||'')); }
 
 function isValidImage(file){
     if(!file) return false;
