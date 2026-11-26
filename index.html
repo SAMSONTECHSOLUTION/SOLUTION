@@ -15,6 +15,7 @@ body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#e8f5e9 0%
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:none;}}
 @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
 @keyframes pulseRing{0%,100%{box-shadow:0 0 0 0 rgba(241,196,15,.6),0 10px 24px rgba(0,0,0,.3);}50%{box-shadow:0 0 0 18px rgba(241,196,15,0),0 10px 24px rgba(0,0,0,.3);}}
+@keyframes ringGlow{0%,100%{box-shadow:0 0 0 8px rgba(241,196,15,.15),0 20px 50px rgba(0,0,0,.4);}50%{box-shadow:0 0 0 18px rgba(241,196,15,0),0 20px 50px rgba(0,0,0,.4);}}
 @keyframes kenBurns{0%{transform:scale(1) translate(0,0);}100%{transform:scale(1.15) translate(-2%,-2%);}}
 @keyframes floatY{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
 @keyframes shimmer{0%,100%{background-position:0% 50%;}50%{background-position:100% 50%;}}
@@ -38,22 +39,32 @@ body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#e8f5e9 0%
 .topbar-clock{display:inline-flex;align-items:center;gap:7px;background:rgba(241,196,15,.13);padding:4px 14px;border-radius:30px;color:#f1c40f;font-weight:800;font-family:'Courier New',monospace;letter-spacing:1.2px;font-size:.8rem;border:1px solid rgba(241,196,15,.3);}
 .live-dot{width:7px;height:7px;background:#2ecc71;border-radius:50%;display:inline-block;animation:pulseDot 1.5s ease-in-out infinite;}
 
-.hero{position:relative;background:linear-gradient(135deg,#0a3b2f 0%,#1b6d5e 50%,#0e4d3e 100%);padding:2.2rem 2rem 2rem;text-align:center;box-shadow:0 12px 28px rgba(0,0,0,.18);border-bottom:4px solid #f1c40f;overflow:hidden;}
-.hero::before{content:'';position:absolute;top:-50%;left:-20%;width:140%;height:200%;background:radial-gradient(ellipse at 30% 50%,rgba(46,204,113,.10) 0%,transparent 70%);pointer-events:none;}
+/* ═══════════ HERO / BANNER ═══════════ */
+.hero{position:relative;background:linear-gradient(135deg,#0a3b2f 0%,#1b6d5e 50%,#0e4d3e 100%);padding:3rem 2rem;box-shadow:0 12px 28px rgba(0,0,0,.18);border-bottom:4px solid #f1c40f;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-50%;left:-20%;width:140%;height:200%;background:radial-gradient(ellipse at 30% 50%,rgba(46,204,113,.12) 0%,transparent 70%);pointer-events:none;}
 .hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#2ecc71,#f1c40f,#3498db,#27ae60,#f39c12);background-size:300% 100%;animation:shimmer 4s ease-in-out infinite;}
+.hero-grid{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr;gap:2.5rem;align-items:center;position:relative;z-index:2;}
+.hero-text{text-align:left;animation:fadeUp .8s ease both;}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(241,196,15,.15);border:1px solid rgba(241,196,15,.4);color:#f9e79f;font-size:.75rem;font-weight:700;padding:6px 18px;border-radius:30px;letter-spacing:.6px;text-transform:uppercase;margin-bottom:1rem;animation:fadeIn .8s ease;}
-.hero h1{color:#fff;font-size:2.4rem;font-weight:900;letter-spacing:.5px;line-height:1.15;text-shadow:0 2px 12px rgba(0,0,0,.3);margin-bottom:.7rem;animation:fadeUp .8s ease .1s both;}
+.hero h1{color:#fff;font-size:2.8rem;font-weight:900;letter-spacing:.5px;line-height:1.1;text-shadow:0 2px 12px rgba(0,0,0,.3);margin-bottom:.8rem;animation:fadeUp .8s ease .1s both;}
 .hero h1 .highlight{color:#f1c40f;}
-.hero p{color:#a9e6cf;font-size:1rem;max-width:720px;margin:0 auto 1.4rem;line-height:1.6;animation:fadeUp .8s ease .2s both;}
-.hero-cta{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;position:relative;z-index:2;animation:fadeUp .8s ease .3s both;}
-.btn-hero{background:linear-gradient(135deg,#f1c40f,#f39c12);color:#0a3b2f;padding:13px 30px;border-radius:60px;font-weight:800;font-size:.95rem;text-decoration:none;border:none;cursor:pointer;transition:.25s;box-shadow:0 6px 20px rgba(241,196,15,.4);display:inline-flex;align-items:center;gap:9px;font-family:inherit;}
+.hero-text p{color:#a9e6cf;font-size:1rem;max-width:600px;margin:0 0 1.5rem;line-height:1.6;animation:fadeUp .8s ease .2s both;}
+.hero-cta{display:flex;gap:.8rem;justify-content:flex-start;flex-wrap:wrap;position:relative;z-index:2;animation:fadeUp .8s ease .3s both;}
+.btn-hero{background:linear-gradient(135deg,#f1c40f,#f39c12);color:#0a3b2f;padding:13px 28px;border-radius:60px;font-weight:800;font-size:.92rem;text-decoration:none;border:none;cursor:pointer;transition:.25s;box-shadow:0 6px 20px rgba(241,196,15,.4);display:inline-flex;align-items:center;gap:9px;font-family:inherit;}
 .btn-hero:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 10px 30px rgba(241,196,15,.6);}
 .btn-hero.outline{background:transparent;border:2px solid rgba(255,255,255,.4);color:#fff;box-shadow:none;}
 .btn-hero.outline:hover{background:rgba(255,255,255,.1);border-color:#f1c40f;}
-.hero-stats{display:flex;justify-content:center;gap:2.5rem;margin-top:1.8rem;flex-wrap:wrap;position:relative;z-index:2;animation:fadeUp .8s ease .4s both;}
+.hero-stats{display:flex;justify-content:flex-start;gap:2.5rem;margin-top:1.8rem;flex-wrap:wrap;position:relative;z-index:2;animation:fadeUp .8s ease .4s both;}
 .hero-stat{text-align:center;}
 .hero-stat .num{font-size:1.9rem;font-weight:900;color:#f1c40f;line-height:1;}
 .hero-stat .lbl{font-size:.72rem;color:#b8e0d4;font-weight:600;letter-spacing:.4px;text-transform:uppercase;margin-top:4px;}
+
+.hero-founder{display:flex;flex-direction:column;align-items:center;gap:.8rem;animation:fadeUp .8s ease .2s both;}
+.hero-founder-ring{width:320px;height:320px;max-width:82vw;max-height:82vw;border-radius:50%;padding:8px;background:linear-gradient(135deg,#f1c40f,#f39c12,#f1c40f);animation:ringGlow 3s ease-in-out infinite;}
+.hero-founder-photo{width:100%;height:100%;border-radius:50%;overflow:hidden;background:#0a3b2f;display:flex;align-items:center;justify-content:center;font-size:6.5rem;font-weight:900;color:#f1c40f;border:6px solid #0a3b2f;}
+.hero-founder-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+.hero-founder-name{color:#fff;font-size:1.4rem;font-weight:900;letter-spacing:.5px;text-align:center;margin-top:.4rem;}
+.hero-founder-role{color:#f1c40f;font-size:.8rem;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;text-align:center;}
 
 .container{max-width:1400px;margin:2rem auto;padding:0 1.8rem;}
 
@@ -103,24 +114,6 @@ body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#e8f5e9 0%
 .empty-state i{font-size:3rem;color:#c8e6df;margin-bottom:1rem;display:block;}
 .empty-state h3{color:#0a3b2f;font-size:1.1rem;margin-bottom:.4rem;}
 .empty-state p{font-size:.85rem;}
-
-.featured-section{margin-top:3rem;}
-.featured-card{background:linear-gradient(135deg,#0a3b2f 0%,#1b6d5e 100%);border-radius:28px;padding:2rem;color:#fff;display:flex;gap:2rem;align-items:center;flex-wrap:wrap;box-shadow:0 20px 50px -20px rgba(10,59,47,.5);border-bottom:4px solid #f1c40f;animation:fadeUp .6s ease both;}
-.featured-photo{width:130px;height:130px;border-radius:50%;object-fit:cover;border:5px solid #f1c40f;background:#0a3b2f;display:flex;align-items:center;justify-content:center;font-size:2.8rem;font-weight:900;color:#f1c40f;overflow:hidden;flex-shrink:0;animation:pulseRing 3s ease-in-out infinite;}
-.featured-photo img{width:100%;height:100%;object-fit:cover;}
-.featured-info{flex:1;min-width:250px;}
-.featured-info .tag{display:inline-flex;align-items:center;gap:6px;background:rgba(241,196,15,.2);border:1px solid rgba(241,196,15,.5);color:#f9e79f;font-size:.7rem;font-weight:800;padding:4px 12px;border-radius:20px;text-transform:uppercase;letter-spacing:.5px;margin-bottom:.6rem;}
-.featured-info h3{font-size:1.6rem;font-weight:900;margin-bottom:.4rem;color:#fff;}
-.featured-info .role{color:#f1c40f;font-size:.9rem;font-weight:700;margin-bottom:.7rem;}
-.featured-info p{color:#c9e6db;font-size:.88rem;line-height:1.6;}
-.featured-chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.8rem;}
-.featured-chips .chip{background:rgba(241,196,15,.15);border:1px solid rgba(241,196,15,.35);color:#f9e79f;font-size:.7rem;font-weight:700;padding:4px 10px;border-radius:20px;}
-.featured-actions{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1rem;}
-.featured-actions .fbtn{padding:9px 20px;border-radius:40px;font-weight:700;font-size:.82rem;text-decoration:none;border:none;cursor:pointer;font-family:inherit;display:inline-flex;align-items:center;gap:6px;transition:.2s;}
-.featured-actions .fbtn.primary{background:#f1c40f;color:#0a3b2f;}
-.featured-actions .fbtn.primary:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(241,196,15,.5);}
-.featured-actions .fbtn.outline{background:transparent;border:2px solid rgba(255,255,255,.3);color:#fff;}
-.featured-actions .fbtn.outline:hover{background:rgba(255,255,255,.1);border-color:#f1c40f;}
 
 .showcase-section{margin-top:3rem;}
 .showcase-carousel{position:relative;width:100%;aspect-ratio:16/9;max-height:520px;border-radius:28px;overflow:hidden;background:linear-gradient(135deg,#0a3b2f,#1b6d5e);box-shadow:0 20px 50px -20px rgba(10,59,47,.5);border:3px solid #f1c40f;animation:fadeUp .6s ease both;}
@@ -192,13 +185,6 @@ body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#e8f5e9 0%
 .gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:.6rem;}
 .gallery-grid img,.gallery-grid video{width:100%;height:140px;object-fit:cover;border-radius:10px;border:2px solid #e0ece6;cursor:pointer;transition:.2s;background:#062b22;}
 .gallery-grid img:hover,.gallery-grid video:hover{transform:scale(1.04);border-color:#2ecc71;}
-
-.auth-tabs{display:flex;gap:.5rem;margin-bottom:1.4rem;border-bottom:2px solid #e0ece6;flex-wrap:wrap;}
-.auth-tab{background:none;border:none;padding:10px 20px;font-weight:700;cursor:pointer;color:#7b9a8e;border-bottom:3px solid transparent;transition:.2s;font-family:inherit;font-size:.88rem;margin-bottom:-2px;}
-.auth-tab.active{color:#0a3b2f;border-bottom-color:#2ecc71;}
-.auth-tab:hover:not(.active){color:#2ecc71;}
-.auth-panel{display:none;}
-.auth-panel.active{display:block;animation:fadeIn .25s;}
 
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:.9rem;}
 .form-row .full{grid-column:1 / -1;}
@@ -290,17 +276,24 @@ body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#e8f5e9 0%
 .footer-bottom{text-align:center;margin-top:1.8rem;padding-top:1rem;border-top:1px solid #2c7a5e;font-size:.82rem;max-width:1400px;margin-left:auto;margin-right:auto;}
 
 @media (max-width:900px){
-    .hero h1{font-size:1.7rem;}
-    .hero p{font-size:.9rem;}
-    .hero-stats{gap:1.5rem;}
-    .featured-card{flex-direction:column;text-align:center;}
-    .featured-actions{justify-content:center;}
+    .hero-grid{grid-template-columns:1fr;text-align:center;gap:2rem;}
+    .hero-text{text-align:center;}
+    .hero h1{font-size:2rem;}
+    .hero-text p{font-size:.92rem;margin-left:auto;margin-right:auto;}
+    .hero-cta{justify-content:center;}
+    .hero-stats{justify-content:center;gap:1.5rem;}
+    .hero-founder-ring{width:240px;height:240px;}
+    .hero-founder-photo{font-size:5rem;}
     .form-row{grid-template-columns:1fr;}
     .showcase-carousel{aspect-ratio:4/3;}
 }
 @media (max-width:600px){
-    .hero{padding:1.6rem 1rem;}
-    .hero h1{font-size:1.4rem;}
+    .hero{padding:2rem 1rem;}
+    .hero h1{font-size:1.5rem;}
+    .hero-founder-ring{width:190px;height:190px;padding:6px;}
+    .hero-founder-photo{font-size:4rem;border-width:4px;}
+    .hero-founder-name{font-size:1.1rem;}
+    .hero-founder-role{font-size:.7rem;}
     .container{padding:0 1rem;}
     .search-bar{flex-direction:column;padding:.8rem;border-radius:20px;}
     .search-bar .search-input,.search-bar select,.search-bar .search-btn{width:100%;}
@@ -331,24 +324,39 @@ body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#e8f5e9 0%
             <span><i class="fas fa-location-dot"></i> Kwale County, Kenya</span>
         </div>
         <div class="topbar-right">
-            <button class="top-link" id="openAuthBtn"><i class="fas fa-sign-in-alt"></i> Login / Register</button>
+            <button class="top-link" id="openAuthBtn"><i class="fas fa-sign-in-alt"></i> Engineer Login</button>
             <a class="yt-btn" href="https://www.youtube.com/@MSAMBWENI-TVC" target="_blank" rel="noopener"><i class="fab fa-youtube"></i> YouTube</a>
         </div>
     </div>
 </div>
 
+<!-- ══════════════════════════════════════════════════════════════
+     HERO BANNER — with LARGE founder portrait (visible from far)
+     ══════════════════════════════════════════════════════════════ -->
 <header class="hero">
-    <div class="hero-badge"><i class="fas fa-hard-hat"></i> Certified Engineers Directory</div>
-    <h1>SAMSON <span class="highlight">TECH</span> SOLUTION</h1>
-    <p>Kenya's growing network of verified engineers — Network, Software, Hardware, Electrical, Civil &amp; more. Find the right specialist and contact them directly.</p>
-    <div class="hero-cta">
-        <button class="btn-hero" id="heroRegisterBtn"><i class="fas fa-user-plus"></i> Register as Engineer</button>
-        <button class="btn-hero outline" id="heroBrowseBtn"><i class="fas fa-search"></i> Browse Engineers</button>
-    </div>
-    <div class="hero-stats">
-        <div class="hero-stat"><div class="num" id="statTotal">0</div><div class="lbl">Engineers</div></div>
-        <div class="hero-stat"><div class="num" id="statVerified">0</div><div class="lbl">Verified</div></div>
-        <div class="hero-stat"><div class="num" id="statSpecs">0</div><div class="lbl">Specialties</div></div>
+    <div class="hero-grid">
+        <div class="hero-text">
+            <div class="hero-badge"><i class="fas fa-hard-hat"></i> Certified Engineers Directory</div>
+            <h1>SAMSON <span class="highlight">TECH</span> SOLUTION</h1>
+            <p>Kenya's growing network of verified engineers — Network, Software, Hardware, Electrical, Civil &amp; more. Find the right specialist and contact them directly.</p>
+            <div class="hero-cta">
+                <button class="btn-hero" id="heroContactBtn"><i class="fas fa-paper-plane"></i> Contact Founder</button>
+                <button class="btn-hero outline" id="heroProfileBtn"><i class="fas fa-id-card"></i> View Full Profile</button>
+                <button class="btn-hero outline" id="heroBrowseBtn"><i class="fas fa-search"></i> Browse Engineers</button>
+            </div>
+            <div class="hero-stats">
+                <div class="hero-stat"><div class="num" id="statTotal">0</div><div class="lbl">Engineers</div></div>
+                <div class="hero-stat"><div class="num" id="statVerified">0</div><div class="lbl">Verified</div></div>
+                <div class="hero-stat"><div class="num" id="statSpecs">0</div><div class="lbl">Specialties</div></div>
+            </div>
+        </div>
+        <div class="hero-founder">
+            <div class="hero-founder-ring">
+                <div class="hero-founder-photo" id="heroFounderPhoto">S</div>
+            </div>
+            <div class="hero-founder-name">MR SAMSON RUMBA</div>
+            <div class="hero-founder-role">Founder &amp; ICT Manager</div>
+        </div>
     </div>
 </header>
 
@@ -383,25 +391,6 @@ body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#e8f5e9 0%
         <span class="result-count" id="resultCount">0 engineers found</span>
     </div>
     <div class="eng-grid" id="engGrid"></div>
-
-    <section class="featured-section">
-        <div class="sec-title"><h2><i class="fas fa-star"></i> Founder &amp; Lead</h2></div>
-        <div class="featured-card">
-            <div class="featured-photo" id="founderPhoto">S</div>
-            <div class="featured-info">
-                <div class="tag"><i class="fas fa-award"></i> ICT Manager &amp; Founder</div>
-                <h3>MR SAMSON RUMBA</h3>
-                <div class="role">Founder — Samson Tech Solution</div>
-                <p>Results-oriented IT professional with hands-on experience across networking, system administration, and computer maintenance. Skilled in POS systems, property management systems, PBX telephony, CCTV, printer infrastructure, smart door locks, and landline network administration.</p>
-                <div class="featured-chips" id="founderChips"></div>
-                <div class="featured-actions">
-                    <button class="fbtn primary" id="contactFounderBtn"><i class="fas fa-paper-plane"></i> Contact Samson</button>
-                    <button class="fbtn outline" id="viewFounderProfileBtn"><i class="fas fa-id-card"></i> View Full Profile</button>
-                    <a class="fbtn outline" href="https://www.youtube.com/@MSAMBWENI-TVC" target="_blank" rel="noopener"><i class="fab fa-youtube"></i> YouTube</a>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <section class="showcase-section">
         <div class="sec-title">
@@ -462,102 +451,36 @@ body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#e8f5e9 0%
         </div>
         <div>
             <h5><i class="fas fa-compass"></i> Quick Links</h5>
-            <p><a href="#" id="footRegister">Register as Engineer</a><br>
-            <a href="#" id="footLogin">Engineer Login</a><br>
+            <p><a href="#" id="footLogin">Engineer Login</a><br>
             <a href="#publicView">Browse Engineers</a></p>
         </div>
     </div>
     <div class="footer-bottom">© 2026 Samson Tech Solution | Created by <strong>MR SAMSON RUMBA</strong> — ICT Manager</div>
 </footer>
 
+<!-- ═══════════ LOGIN MODAL (registration removed) ═══════════ -->
 <div class="modal-overlay" id="authModal">
     <div class="modal">
         <div class="modal-head">
-            <h3><i class="fas fa-user-lock"></i> Account Access</h3>
+            <h3><i class="fas fa-user-lock"></i> Engineer Login</h3>
             <button class="modal-close" data-close="authModal">✕</button>
         </div>
         <div class="modal-body">
-            <div class="auth-tabs">
-                <button class="auth-tab active" data-auth-tab="login">Login</button>
-                <button class="auth-tab" data-auth-tab="register">Register as Engineer</button>
-            </div>
-            <div class="auth-panel active" id="panel-login">
-                <div class="alert" id="loginAlert"></div>
-                <div class="form-row">
-                    <div class="full">
-                        <label class="field-label">Email <span class="req">*</span></label>
-                        <input type="email" class="form-input" id="loginEmail" placeholder="your@email.com">
-                    </div>
-                    <div class="full">
-                        <label class="field-label">Password <span class="req">*</span></label>
-                        <input type="password" class="form-input" id="loginPassword" placeholder="••••••••">
-                    </div>
+            <div class="alert" id="loginAlert"></div>
+            <div class="form-row">
+                <div class="full">
+                    <label class="field-label">Email <span class="req">*</span></label>
+                    <input type="email" class="form-input" id="loginEmail" placeholder="your@email.com">
                 </div>
-                <button class="btn-primary full" id="loginSubmitBtn"><i class="fas fa-sign-in-alt"></i> Sign In</button>
-                <p class="form-hint" style="text-align:center;margin-top:1rem;">
-                    Don't have an account? <a href="#" style="color:#2ecc71;font-weight:700;text-decoration:none;" class="switch-tab" data-to="register">Register as Engineer</a>
-                </p>
-            </div>
-            <div class="auth-panel" id="panel-register">
-                <div class="alert" id="registerAlert"></div>
-                <div class="photo-picker">
-                    <div class="photo-preview" id="regPhotoPreview"><i class="fas fa-user"></i></div>
-                    <div class="pp-text"><strong>Profile Photo</strong><small>JPG or PNG (JPEG preferred)</small></div>
-                    <label class="file-btn"><i class="fas fa-camera"></i> Upload<input type="file" id="regPhotoInput" accept=".jpg,.jpeg,.png,image/jpeg,image/png" hidden></label>
+                <div class="full">
+                    <label class="field-label">Password <span class="req">*</span></label>
+                    <input type="password" class="form-input" id="loginPassword" placeholder="••••••••">
                 </div>
-                <div class="form-row">
-                    <div class="full">
-                        <label class="field-label">Full Name <span class="req">*</span></label>
-                        <input type="text" class="form-input" id="regFullName" placeholder="Eng. John Doe">
-                    </div>
-                    <div>
-                        <label class="field-label">Email <span class="req">*</span></label>
-                        <input type="email" class="form-input" id="regEmail" placeholder="you@email.com">
-                    </div>
-                    <div>
-                        <label class="field-label">Phone <span class="req">*</span></label>
-                        <input type="tel" class="form-input" id="regPhone" placeholder="+254 7XX XXX XXX">
-                    </div>
-                    <div>
-                        <label class="field-label">Password <span class="req">*</span></label>
-                        <input type="password" class="form-input" id="regPassword" placeholder="Min 6 characters">
-                    </div>
-                    <div>
-                        <label class="field-label">Confirm Password <span class="req">*</span></label>
-                        <input type="password" class="form-input" id="regConfirm" placeholder="Confirm password">
-                    </div>
-                    <div>
-                        <label class="field-label">Specialty <span class="req">*</span></label>
-                        <select class="form-select" id="regSpecialty">
-                            <option value="">Select specialty</option>
-                            <option>Network Engineer</option>
-                            <option>Software Engineer</option>
-                            <option>Hardware Engineer</option>
-                            <option>Electrical Engineer</option>
-                            <option>Civil Engineer</option>
-                            <option>Mechanical Engineer</option>
-                            <option>Cybersecurity Specialist</option>
-                            <option>Cloud / DevOps Engineer</option>
-                            <option>Data Engineer</option>
-                            <option>ICT Trainer</option>
-                            <option>IT Professional</option>
-                            <option>Other</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="field-label">Location <span class="req">*</span></label>
-                        <input type="text" class="form-input" id="regLocation" placeholder="e.g. Nairobi, Kenya">
-                    </div>
-                    <div class="full">
-                        <label class="field-label">Short Bio <span class="req">*</span></label>
-                        <textarea class="form-textarea" id="regBio" placeholder="Tell visitors what you do, your experience, what makes you unique..."></textarea>
-                    </div>
-                </div>
-                <button class="btn-primary full" id="registerSubmitBtn"><i class="fas fa-user-plus"></i> Create Engineer Profile</button>
-                <p class="form-hint" style="text-align:center;margin-top:1rem;">
-                    Already registered? <a href="#" style="color:#2ecc71;font-weight:700;text-decoration:none;" class="switch-tab" data-to="login">Login here</a>
-                </p>
             </div>
+            <button class="btn-primary full" id="loginSubmitBtn"><i class="fas fa-sign-in-alt"></i> Sign In</button>
+            <p class="form-hint" style="text-align:center;margin-top:1rem;">
+                Administrator &amp; registered engineers only. New accounts are created by the administrator.
+            </p>
         </div>
     </div>
 </div>
@@ -706,31 +629,18 @@ body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#e8f5e9 0%
    ★                                                                     ★
    ★         ★★★  ADD YOUR PHOTOS HERE  ★★★                            ★
    ★                                                                     ★
-   ★  Photos added here are visible to EVERY visitor immediately —       ★
-   ★  no login required.                                                 ★
+   ★  Photos added here are visible to EVERY visitor immediately.        ★
    ★                                                                     ★
    ★  OPTION A — File paths (easiest & recommended):                     ★
    ★    1. Save your JPEG files in the SAME FOLDER as this HTML file     ★
-   ★       e.g.  samson.jpg, photo1.jpg, photo2.jpg                      ★
-   ★    2. Replace the empty strings below with your file names:         ★
-   ★         const FOUNDER_PROFILE_PHOTO = 'samson.jpg';                 ★
-   ★         const FOUNDER_PHOTOS = [                                    ★
-   ★             'aaa.jpg',                                              ★
-   ★             'b2.jpg',                                               ★
-   ★             'b10.jpg',                                              ★
-   ★             'b3.jpg',                                               ★
-   ★         ];                                                         ★
+   ★    2. Replace the names below with your file names.                ★
    ★                                                                     ★
-   ★  OPTION B — Base64 (paste the entire data URL):                     ★
-   ★    const FOUNDER_PHOTOS = [                                         ★
-   ★       'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQ...',               ★
-   ★    ];                                                              ★
+   ★  OPTION B — Base64 (paste the entire data URL).                     ★
    ★                                                                     ★
    ★  Notes:                                                             ★
    ★   • The first photo in FOUNDER_PHOTOS shows first in the carousel   ★
    ★   • You can mix file paths AND base64 strings freely                ★
    ★   • Only JPEG / JPG / PNG files are supported                       ★
-   ★   • Leave the arrays empty (as shown) to show the placeholder       ★
    ★                                                                     ★
    ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
    ═══════════════════════════════════════════════════════════════════════ */
@@ -897,7 +807,6 @@ const DEFAULT_FOUNDER = {
    STATE
    ═══════════════════════════════════════════════════════════════ */
 let currentUser = null;
-let pendingRegPhoto = null;
 let pendingEditPhoto = null;
 let pendingEditGallery = [];
 let showcaseIndex = 0;
@@ -1051,32 +960,13 @@ function loadSession(){
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   AUTH
+   AUTH (login only — no self-registration)
    ═══════════════════════════════════════════════════════════════ */
 function login(email, password){
     const u = getEngineers().find(x => x.email.toLowerCase() === email.toLowerCase());
     if(!u) return { ok:false, msg:'No account found with that email.' };
     if(u.password !== password) return { ok:false, msg:'Incorrect password.' };
     return { ok:true, user:u };
-}
-function registerEngineer(data){
-    const users = getEngineers();
-    if(users.some(u => u.email.toLowerCase() === data.email.toLowerCase())) return { ok:false, msg:'That email is already registered.' };
-    if(data.password.length < 6) return { ok:false, msg:'Password must be at least 6 characters.' };
-    const newEng = {
-        id: 'eng' + Date.now(),
-        fullName: data.fullName, email: data.email, password: data.password,
-        phone: data.phone, whatsapp: data.phone,
-        specialty: data.specialty, location: data.location, bio: data.bio,
-        skills: [], yearsExperience: 0, linkedin: '', portfolio: '',
-        photo: data.photo || '', gallery: [],
-        certifications: [], experience: [],
-        role: 'engineer', isFounder: false, verified: false,
-        registeredAt: new Date().toISOString().slice(0,10)
-    };
-    users.push(newEng);
-    setEngineers(users);
-    return { ok:true, user:newEng };
 }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -1120,7 +1010,7 @@ function renderDirectory(){
     const list = filterEngineers();
     document.getElementById('resultCount').textContent = `${list.length} engineer${list.length === 1 ? '' : 's'} found`;
     if(!list.length){
-        grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1;"><i class="fas fa-user-slash"></i><h3>No engineers found</h3><p>Try clearing filters, or be the first engineer to register!</p></div>`;
+        grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1;"><i class="fas fa-user-slash"></i><h3>No engineers found</h3><p>Try clearing filters, or check back later as new engineers join.</p></div>`;
         return;
     }
     grid.innerHTML = list.map(e => {
@@ -1156,12 +1046,11 @@ function renderDirectory(){
     }).join('');
 }
 
+/* Updates the LARGE founder portrait in the hero banner */
 function renderFounder(){
     const f = getEngineers().find(e => e.isFounder) || DEFAULT_FOUNDER;
-    const el = document.getElementById('founderPhoto');
-    if(el) el.innerHTML = f.photo ? `<img src="${escapeAttr(f.photo)}" alt="Samson">` : esc(initials(f.fullName));
-    const chips = document.getElementById('founderChips');
-    if(chips) chips.innerHTML = (f.skills||[]).slice(0,8).map(s => `<span class="chip">${esc(s)}</span>`).join('');
+    const el = document.getElementById('heroFounderPhoto');
+    if(el) el.innerHTML = f.photo ? `<img src="${escapeAttr(f.photo)}" alt="Mr Samson Rumba">` : esc(initials(f.fullName));
 }
 
 function renderShowcase(){
@@ -1224,55 +1113,9 @@ function closeModal(id){ document.getElementById(id).classList.remove('active');
 document.querySelectorAll('[data-close]').forEach(btn => btn.addEventListener('click', () => closeModal(btn.dataset.close)));
 document.querySelectorAll('.modal-overlay').forEach(ov => ov.addEventListener('click', e => { if(e.target === ov) ov.classList.remove('active'); }));
 
-function switchAuthTab(tab){
-    document.querySelectorAll('.auth-tab').forEach(t => t.classList.toggle('active', t.dataset.authTab === tab));
-    document.querySelectorAll('.auth-panel').forEach(p => p.classList.remove('active'));
-    document.getElementById('panel-' + tab).classList.add('active');
-}
-document.querySelectorAll('.auth-tab').forEach(btn => btn.addEventListener('click', () => switchAuthTab(btn.dataset.authTab)));
-document.querySelectorAll('.switch-tab').forEach(a => a.addEventListener('click', e => { e.preventDefault(); switchAuthTab(a.dataset.to); }));
-
-document.getElementById('openAuthBtn').addEventListener('click', () => { switchAuthTab('login'); openModal('authModal'); });
-document.getElementById('heroRegisterBtn').addEventListener('click', () => { switchAuthTab('register'); openModal('authModal'); });
+document.getElementById('openAuthBtn').addEventListener('click', () => openModal('authModal'));
 document.getElementById('heroBrowseBtn').addEventListener('click', () => document.getElementById('publicView').scrollIntoView({behavior:'smooth'}));
-document.getElementById('footRegister').addEventListener('click', e => { e.preventDefault(); switchAuthTab('register'); openModal('authModal'); });
-document.getElementById('footLogin').addEventListener('click', e => { e.preventDefault(); switchAuthTab('login'); openModal('authModal'); });
-
-document.getElementById('regPhotoInput').addEventListener('change', e => {
-    const f = e.target.files?.[0]; if(!f) return;
-    if(!isValidImage(f)){ alert('Please upload a JPEG or PNG image.'); e.target.value=''; return; }
-    fileToDataURL(f, 500, 500, 0.85).then(d => {
-        pendingRegPhoto = d;
-        document.getElementById('regPhotoPreview').innerHTML = `<img src="${d}">`;
-    }).catch(err => alert(err));
-});
-
-document.getElementById('registerSubmitBtn').addEventListener('click', () => {
-    const alertEl = document.getElementById('registerAlert');
-    alertEl.className = 'alert'; alertEl.textContent = '';
-    const data = {
-        fullName: document.getElementById('regFullName').value.trim(),
-        email: document.getElementById('regEmail').value.trim(),
-        phone: document.getElementById('regPhone').value.trim(),
-        password: document.getElementById('regPassword').value,
-        confirm: document.getElementById('regConfirm').value,
-        specialty: document.getElementById('regSpecialty').value,
-        location: document.getElementById('regLocation').value.trim(),
-        bio: document.getElementById('regBio').value.trim(),
-        photo: pendingRegPhoto
-    };
-    if(!data.fullName || !data.email || !data.phone || !data.password || !data.specialty || !data.location || !data.bio){
-        alertEl.className = 'alert error'; alertEl.textContent = 'Please fill all required fields.'; return;
-    }
-    if(data.password !== data.confirm){ alertEl.className = 'alert error'; alertEl.textContent = 'Passwords do not match.'; return; }
-    const res = registerEngineer(data);
-    if(!res.ok){ alertEl.className = 'alert error'; alertEl.textContent = res.msg; return; }
-    alertEl.className = 'alert success'; alertEl.textContent = '✅ Account created! You are now signed in.';
-    setTimeout(() => {
-        closeModal('authModal'); clearAuthForm();
-        currentUser = res.user; saveSession(res.user); onLoginSuccess(res.user);
-    }, 1200);
-});
+document.getElementById('footLogin').addEventListener('click', e => { e.preventDefault(); openModal('authModal'); });
 
 document.getElementById('loginSubmitBtn').addEventListener('click', () => {
     const alertEl = document.getElementById('loginAlert');
@@ -1286,10 +1129,8 @@ document.getElementById('loginSubmitBtn').addEventListener('click', () => {
 });
 
 function clearAuthForm(){
-    ['regFullName','regEmail','regPhone','regPassword','regConfirm','regLocation','regBio','loginEmail','loginPassword'].forEach(id => document.getElementById(id).value = '');
-    document.getElementById('regSpecialty').value = '';
-    document.getElementById('regPhotoPreview').innerHTML = '<i class="fas fa-user"></i>';
-    pendingRegPhoto = null;
+    document.getElementById('loginEmail').value = '';
+    document.getElementById('loginPassword').value = '';
 }
 
 function onLoginSuccess(user){
@@ -1480,11 +1321,6 @@ window.openProfile = function(id){
     openModal('profileModal');
 };
 
-document.getElementById('viewFounderProfileBtn').addEventListener('click', () => {
-    const f = getEngineers().find(x => x.isFounder);
-    if(f) window.openProfile(f.id);
-});
-
 window.openContact = function(id){
     const e = getEngineers().find(x => x.id === id);
     if(!e) return;
@@ -1519,11 +1355,6 @@ document.getElementById('sendMessageBtn').addEventListener('click', () => {
     window.location.href = `mailto:${encodeURIComponent(e.email)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(fullBody)}`;
     logContact({ engineerName:e.fullName, engineerEmail:e.email, fromName:name, fromEmail:email, fromPhone:phone, message:body });
     closeModal('contactModal');
-});
-
-document.getElementById('contactFounderBtn').addEventListener('click', () => {
-    const f = getEngineers().find(x => x.isFounder);
-    if(f) window.openContact(f.id);
 });
 
 document.querySelectorAll('.admin-nav button').forEach(btn => {
@@ -1634,6 +1465,18 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('searchInput').addEventListener('input', renderDirectory);
     document.getElementById('specFilter').addEventListener('change', renderDirectory);
     document.getElementById('sortFilter').addEventListener('change', renderDirectory);
+
+    /* Hero banner buttons */
+    const heroContact = document.getElementById('heroContactBtn');
+    if(heroContact) heroContact.addEventListener('click', () => {
+        const f = getEngineers().find(x => x.isFounder);
+        if(f) window.openContact(f.id);
+    });
+    const heroProfile = document.getElementById('heroProfileBtn');
+    if(heroProfile) heroProfile.addEventListener('click', () => {
+        const f = getEngineers().find(x => x.isFounder);
+        if(f) window.openProfile(f.id);
+    });
 
     const u = loadSession();
     if(u){ currentUser = u; onLoginSuccess(u); }
